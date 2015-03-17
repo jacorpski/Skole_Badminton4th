@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>68956f96-09de-42bf-833a-7bee303a0a86</ProjectGuid>
+    <ProjectGuid>{E6FE37A8-2D6E-4658-9C23-79CCBA3D42A4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Badminton_UnitTest</RootNamespace>
