@@ -1,0 +1,4 @@
+﻿CREATE TABLE [dbo].[Medlem]
+(
+	[Id] INT NOT NULL PRIMARY KEY
+)

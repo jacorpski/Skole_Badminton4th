@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <Name>Database1</Name>
+    <Name>BadmintonDB</Name>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectVersion>4.1</ProjectVersion>
-    <ProjectGuid>{93a82e57-3068-487f-b927-c9859e832ae9}</ProjectGuid>
+    <ProjectGuid>{dd175372-e0d7-41fa-a1f9-812523269c69}</ProjectGuid>
     <DSP>Microsoft.Data.Tools.Schema.Sql.Sql110DatabaseSchemaProvider</DSP>
     <OutputType>Database</OutputType>
     <RootPath>
     </RootPath>
-    <RootNamespace>Database1</RootNamespace>
-    <AssemblyName>Database1</AssemblyName>
+    <RootNamespace>BadmintonDB</RootNamespace>
+    <AssemblyName>BadmintonDB</AssemblyName>
     <ModelCollation>1033, CI</ModelCollation>
     <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
     <DeployToDatabase>True</DeployToDatabase>
