@@ -12,18 +12,18 @@ namespace Badminton_Client
         private string _fornavn;
         private string _efternavn;
         private DateTime _fødselsDato;
-        private string _addresse;
+        private string _adresse;
         private int _postNr;
         private string _telefon;
         private string _mail;
 
-        public Medlem(int medlemsId, string navn, string efternavn, DateTime fødselsDato, string addresse, int postNr, string telefon, string mail)
+        public Medlem(int medlemsId, string fornavn, string efternavn, DateTime fødselsDato, string adresse, int postNr, string telefon, string mail)
         {
             _medlemsId = medlemsId;
-            _fornavn = navn;
+            _fornavn = fornavn;
             _efternavn = efternavn;
             _fødselsDato = fødselsDato;
-            _addresse = addresse;
+            _adresse = adresse;
             _postNr = postNr;
             _telefon = telefon;
             _mail = mail;
@@ -35,7 +35,7 @@ namespace Badminton_Client
             set { _medlemsId = value; }
         }
 
-        public string Navn
+        public string Fornavn
         {
             get { return _fornavn; }
             set { _fornavn = value; }
@@ -53,10 +53,10 @@ namespace Badminton_Client
             set { _fødselsDato = value; }
         }
 
-        public string Addresse
+        public string Adresse
         {
-            get { return _addresse; }
-            set { _addresse = value; }
+            get { return _adresse; }
+            set { _adresse = value; }
         }
 
         public int PostNr
