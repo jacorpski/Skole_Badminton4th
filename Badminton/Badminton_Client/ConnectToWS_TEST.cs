@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Badminton_Client
 {
-    class ConnectToWS_TEST
+    public class ConnectToWS_TEST
     {
         ////Load service
         //    Eksperiment_3_WS service = new Eksperiment_3_WS();
