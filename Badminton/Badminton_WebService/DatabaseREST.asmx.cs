@@ -17,29 +17,13 @@ namespace Badminton_WebService
     // [System.Web.Script.Services.ScriptService]
     public class DatabaseREST : System.Web.Services.WebService
     {
-        private MySqlConnection connection;
-        private string server;
-        private string database;
-        private string uid;
-        private string password;
-
-
         [WebMethod]
         public void AddUser(int medlemsId, string fornavn, string efternavn, string fodselsdato, string addresse, int postnr, string tlf, string email)
         {
-            server = "localhost";
-            database = "semester_4_badminton";
-            uid = "root";
-            password = "";
-            string connectionString;
-            connectionString = "SERVER=" + server + ";" + "DATABASE=" +
-            database + ";" + "UID=" + uid + ";" + "PASSWORD=" + password + ";";
+            DBConnector dbConnector = new DBConnector();
+            dbConnector.OpenConnection();
 
-            connection = new MySqlConnection(connectionString);
-
-            connection.Open();
-
-            MySqlCommand cmd = connection.CreateCommand();
+            MySqlCommand cmd = dbConnector.connection.CreateCommand();
             cmd.CommandText = "INSERT INTO medlemmer (medlemsId, fornavn, efternavn, fodselsdato, addresse, postnr, tlf, email) VALUES (@medlemsId, @fornavn, @efternavn, @fodselsdato, @addresse, @postnr, @tlf, @email)";
             cmd.Parameters.Add("@medlemsId", MySqlDbType.Int32).Value = medlemsId;
             cmd.Parameters.Add("@fornavn", MySqlDbType.VarChar).Value = fornavn;
@@ -53,8 +37,9 @@ namespace Badminton_WebService
             //Execute command
             cmd.ExecuteNonQuery();
 
-            //close connection
-            connection.Close();
+            dbConnector.CloseConnection();
         }
+
+
     }
 }

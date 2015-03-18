@@ -67,6 +67,7 @@
     <Content Include="DatabaseREST.asmx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBConnector.cs" />
     <Compile Include="Service1.svc.cs">
       <DependentUpon>Service1.svc</DependentUpon>
     </Compile>

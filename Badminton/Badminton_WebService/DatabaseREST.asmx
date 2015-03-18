@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="DatabaseREST.asmx.cs" Class="Badminton_WebService.WebServiceTest" %>
+﻿<%@ WebService Language="C#" CodeBehind="DatabaseREST.asmx.cs" Class="Badminton_WebService.DatabaseREST" %>
