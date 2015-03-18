@@ -3,6 +3,23 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Label Content="Medlems ID&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="42" Width="74"/>
+        <Label Content="Fornavn&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Height="42" Width="52"/>
+        <Label Content="Efternavn&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Height="42" Width="60"/>
+        <Label Content="Fødselsdato&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,82,0,0" VerticalAlignment="Top" Height="42" Width="74"/>
+        <Label Content="Adresse&#xD;&#xA;" HorizontalAlignment="Left" Margin="11,105,0,0" VerticalAlignment="Top" Height="42" Width="51"/>
+        <Label Content="PostNr&#xD;&#xA;" HorizontalAlignment="Left" Margin="11,129,0,0" VerticalAlignment="Top" Height="42" Width="46"/>
+        <Label Content="Telefon&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,153,0,0" VerticalAlignment="Top" Height="42" Width="50"/>
+        <Label Content="Email&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top" Height="42" Width="38"/>
+        <TextBox x:Name="medlemsidText" HorizontalAlignment="Left" Height="23" Margin="88,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="fornavnText" HorizontalAlignment="Left" Height="22" Margin="88,38,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="efternavnText" HorizontalAlignment="Left" Height="22" Margin="88,62,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="fodselsdatotext" HorizontalAlignment="Left" Height="23" Margin="88,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="adresseText" HorizontalAlignment="Left" Height="23" Margin="88,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="postNrText" HorizontalAlignment="Left" Height="23" Margin="88,133,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="telefonText" HorizontalAlignment="Left" Height="23" Margin="88,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="emailText" HorizontalAlignment="Left" Height="23" Margin="88,181,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Opret" HorizontalAlignment="Left" Margin="11,219,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
+
     </Grid>
 </Window>

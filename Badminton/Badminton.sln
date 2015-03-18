@@ -1,9 +1,12 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badminton_Client", "Badminton_Client\Badminton_Client.csproj", "{C94C4EC6-9435-4731-B632-1880A1E05455}"
+	ProjectSection(ProjectDependencies) = postProject
+		{81D166CF-96EF-45D8-9D56-4ABFD0A425A4} = {81D166CF-96EF-45D8-9D56-4ABFD0A425A4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Badminton_WebService", "Badminton_WebService\Badminton_WebService.csproj", "{81D166CF-96EF-45D8-9D56-4ABFD0A425A4}"
 EndProject

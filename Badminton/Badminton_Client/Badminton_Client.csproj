@@ -40,6 +40,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -58,10 +60,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Web References\Badminton_WR\Reference.cs">
+    <Compile Include="Service References\BadmintonService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Reference.map</DependentUpon>
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -103,11 +105,10 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Web References\Badminton_WR\DatabaseREST.wsdl" />
-    <None Include="Web References\Badminton_WR\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddUserResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BadmintonService\DatabaseREST.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -119,20 +120,22 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:8584/DatabaseREST.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\Badminton_WR\</RelPath>
-      <UpdateFromURL>http://localhost:8584/DatabaseREST.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>Badminton_Client_Badminton_WR_DatabaseREST</CachedSettingsPropName>
-    </WebReferenceUrl>
+    <WCFMetadataStorage Include="Service References\BadmintonService\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\Badminton_WR\DatabaseREST.disco" />
+    <None Include="Service References\BadmintonService\DatabaseREST.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BadmintonService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BadmintonService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\BadmintonService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
