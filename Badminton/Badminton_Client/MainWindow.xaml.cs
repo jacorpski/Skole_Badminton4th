@@ -28,11 +28,6 @@ namespace Badminton_Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //MessageBox.Show("hej!");
-
-            //MessageBox.Show(medlemsidText.Text);
-
-            //string medlemsId = medlemsidText.Text;
             int medlemsId = Convert.ToInt32(medlemsidText.Text);
             string fornavn = fornavnText.Text;
             string efternavn = efternavnText.Text;
