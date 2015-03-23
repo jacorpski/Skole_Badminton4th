@@ -16,11 +16,8 @@ namespace Badminton_Client.Control
         {
             _memberCatalog = new MemberCatalog();
         }
-<<<<<<< HEAD
+
         public void AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
-=======
-        public void AddMember(bool isActive, string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
->>>>>>> df9ebde09fa9f0035d920b4b095f025d1143f81a
         {
             _memberCatalog.AddMember(new Member(firstName, surName, cpr, address, zipCode, phone, mail));
         }
