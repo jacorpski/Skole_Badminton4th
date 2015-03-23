@@ -10,13 +10,13 @@ namespace Badminton_Client
     {
         private string _firstName;
         private string _surName;
-        private int _cpr;
+        private string _cpr;
         private string _address;
-        private int _zipCode;
+        private string _zipCode;
         private string _phone;
         private string _mail;
 
-        public Member(string firstName, string surName, int cpr, string address, int zipCode, string phone, string mail)
+        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
         {
             _firstName = firstName;
             _surName = surName;
@@ -39,7 +39,7 @@ namespace Badminton_Client
             set { _surName = value; }
         }
 
-        public int Cpr
+        public string Cpr
         {
             get { return _cpr; }
             set { _cpr = value; }
@@ -51,7 +51,7 @@ namespace Badminton_Client
             set { _address = value; }
         }
 
-        public int ZipCode
+        public string ZipCode
         {
             get { return _zipCode; }
             set { _zipCode = value; }

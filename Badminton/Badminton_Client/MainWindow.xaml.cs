@@ -31,9 +31,9 @@ namespace Badminton_Client
         {
             string firstName = firstNameText.Text;
             string surName = surNameText.Text;
-            int cpr = Convert.ToInt32(cprText.Text);
+            string cpr = cprText.Text;
             string address = addressText.Text;
-            int zipCode = Convert.ToInt32(zipCodeText.Text);
+            string zipCode = zipCodeText.Text;
             string phone = phoneText.Text;
             string mail = mailText.Text;
 

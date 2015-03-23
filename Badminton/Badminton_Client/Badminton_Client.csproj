@@ -105,7 +105,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddUserResponse.datasource">
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddMemberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BadmintonService\DatabaseREST.wsdl" />
