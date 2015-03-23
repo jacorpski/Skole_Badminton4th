@@ -18,21 +18,20 @@ namespace Badminton_WebService
     public class DatabaseREST : System.Web.Services.WebService
     {
         [WebMethod]
-        public void AddUser(int medlemsId, string fornavn, string efternavn, string fodselsdato, string addresse, int postnr, string tlf, string email)
+        public void AddMember(string firstName, string surName, int cpr, string address, int zipCode, string phone, string mail)
         {
             DBConnector dbConnector = new DBConnector();
             dbConnector.OpenConnection();
 
             MySqlCommand cmd = dbConnector.connection.CreateCommand();
-            cmd.CommandText = "INSERT INTO medlemmer (medlemsId, fornavn, efternavn, fodselsdato, addresse, postnr, tlf, email) VALUES (@medlemsId, @fornavn, @efternavn, @fodselsdato, @addresse, @postnr, @tlf, @email)";
-            cmd.Parameters.Add("@medlemsId", MySqlDbType.Int32).Value = medlemsId;
-            cmd.Parameters.Add("@fornavn", MySqlDbType.VarChar).Value = fornavn;
-            cmd.Parameters.Add("@efternavn", MySqlDbType.VarChar).Value = efternavn;
-            cmd.Parameters.Add("@fodselsdato", MySqlDbType.VarChar).Value = fodselsdato;
-            cmd.Parameters.Add("@addresse", MySqlDbType.VarChar).Value = addresse;
-            cmd.Parameters.Add("@postnr", MySqlDbType.Int32).Value = postnr;
-            cmd.Parameters.Add("@tlf", MySqlDbType.VarChar).Value = tlf;
-            cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+            cmd.CommandText = "INSERT INTO members (firstName, surName, cpr, address, postnr, phone, mail) VALUES (@firstName, @surName, @cpr, @address, @zipCode, @phone, @mail)";
+            cmd.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
+            cmd.Parameters.Add("@surName", MySqlDbType.VarChar).Value = surName;
+            cmd.Parameters.Add("@cpr", MySqlDbType.Int32).Value = cpr;
+            cmd.Parameters.Add("@address", MySqlDbType.VarChar).Value = address;
+            cmd.Parameters.Add("@zipCode", MySqlDbType.Int32).Value = zipCode;
+            cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
+            cmd.Parameters.Add("@mail", MySqlDbType.VarChar).Value = mail;
 
             //Execute command
             cmd.ExecuteNonQuery();
