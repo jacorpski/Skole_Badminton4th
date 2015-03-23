@@ -19,5 +19,10 @@ namespace Badminton_Client
         {
             _catalog.Add(member);
         }
+
+        public void SetMemberAsInactive(int memberId)
+        {
+            //Contact webservice here
+        }
     }
 }
