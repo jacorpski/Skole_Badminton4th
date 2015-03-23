@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using Badminton_Client.BadmintonService;
 
 namespace Badminton_Client.Control
 {
@@ -14,9 +16,10 @@ namespace Badminton_Client.Control
         {
             _memberCatalog = new MemberCatalog();
         }
-        public void AddMember(bool isActive, string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
+
+        public void AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
         {
-            _memberCatalog.AddMember(new Member(isActive, firstName, surName, cpr, address, zipCode, phone, mail));
+            _memberCatalog.AddMember(new Member(firstName, surName, cpr, address, zipCode, phone, mail));
         }
 
         public void SetMemberAsInactive(int memberId)

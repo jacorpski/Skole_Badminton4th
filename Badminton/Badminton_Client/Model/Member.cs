@@ -31,6 +31,17 @@ namespace Badminton_Client
             _mail = mail;
         }
 
+        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
+        {
+            _firstName = firstName;
+            _surName = surName;
+            _cpr = cpr;
+            _address = address;
+            _zipCode = zipCode;
+            _phone = phone;
+            _mail = mail;
+        }
+
         public int MemberId
         {
             get { return _memberId; }

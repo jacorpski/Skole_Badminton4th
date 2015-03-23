@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Badminton_Client.BadmintonService;
+using Badminton_Client.Control;
 
 namespace Badminton_Client
 {
@@ -28,20 +29,17 @@ namespace Badminton_Client
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            int medlemsId = Convert.ToInt32(medlemsidText.Text);
-            string fornavn = fornavnText.Text;
-            string efternavn = efternavnText.Text;
-            string fodselsdato = fodselsdatotext.Text;
-            string adresse = adresseText.Text;
-            int postnr = Convert.ToInt32(postNrText.Text);
-            string telefon = telefonText.Text;
-            string email = emailText.Text;
+            string firstName = firstNameText.Text;
+            string surName = surNameText.Text;
+            string cpr = cprText.Text;
+            string address = addressText.Text;
+            string zipCode = zipCodeText.Text;
+            string phone = phoneText.Text;
+            string mail = mailText.Text;
 
-            DatabaseRESTSoapClient service = new DatabaseRESTSoapClient();
+            AddMemberHandler addMemberHandler = new AddMemberHandler();
 
-            service.AddUser(medlemsId, fornavn, efternavn, fodselsdato, adresse, postnr, telefon, email);
-
-            MessageBox.Show("Medlemmet er nu tilføjet til databasen.");
+            addMemberHandler.AddMember(firstName, surName, cpr, address, zipCode, phone, mail);
         }
     }
 }

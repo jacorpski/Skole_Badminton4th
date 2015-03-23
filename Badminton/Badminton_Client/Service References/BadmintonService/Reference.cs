@@ -15,27 +15,27 @@ namespace Badminton_Client.BadmintonService {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BadmintonService.DatabaseRESTSoap")]
     public interface DatabaseRESTSoap {
         
-        // CODEGEN: Generating message contract since element name fornavn from namespace http://tempuri.org/ is not marked nillable
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUser", ReplyAction="*")]
-        Badminton_Client.BadmintonService.AddUserResponse AddUser(Badminton_Client.BadmintonService.AddUserRequest request);
+        // CODEGEN: Generating message contract since element name firstName from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddMember", ReplyAction="*")]
+        Badminton_Client.BadmintonService.AddMemberResponse AddMember(Badminton_Client.BadmintonService.AddMemberRequest request);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddUser", ReplyAction="*")]
-        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddUserResponse> AddUserAsync(Badminton_Client.BadmintonService.AddUserRequest request);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddMember", ReplyAction="*")]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddMemberResponse> AddMemberAsync(Badminton_Client.BadmintonService.AddMemberRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AddUserRequest {
+    public partial class AddMemberRequest {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddUser", Namespace="http://tempuri.org/", Order=0)]
-        public Badminton_Client.BadmintonService.AddUserRequestBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddMember", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.AddMemberRequestBody Body;
         
-        public AddUserRequest() {
+        public AddMemberRequest() {
         }
         
-        public AddUserRequest(Badminton_Client.BadmintonService.AddUserRequestBody Body) {
+        public AddMemberRequest(Badminton_Client.BadmintonService.AddMemberRequestBody Body) {
             this.Body = Body;
         }
     }
@@ -44,44 +44,40 @@ namespace Badminton_Client.BadmintonService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class AddUserRequestBody {
+    public partial class AddMemberRequestBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int medlemsId;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string firstName;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
-        public string fornavn;
+        public string surName;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string efternavn;
+        public string cpr;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string fodselsdato;
+        public string address;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string addresse;
+        public string zipCode;
         
-        [System.Runtime.Serialization.DataMemberAttribute(Order=5)]
-        public int postnr;
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
+        public string phone;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
-        public string tlf;
+        public string mail;
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
-        public string email;
-        
-        public AddUserRequestBody() {
+        public AddMemberRequestBody() {
         }
         
-        public AddUserRequestBody(int medlemsId, string fornavn, string efternavn, string fodselsdato, string addresse, int postnr, string tlf, string email) {
-            this.medlemsId = medlemsId;
-            this.fornavn = fornavn;
-            this.efternavn = efternavn;
-            this.fodselsdato = fodselsdato;
-            this.addresse = addresse;
-            this.postnr = postnr;
-            this.tlf = tlf;
-            this.email = email;
+        public AddMemberRequestBody(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
+            this.firstName = firstName;
+            this.surName = surName;
+            this.cpr = cpr;
+            this.address = address;
+            this.zipCode = zipCode;
+            this.phone = phone;
+            this.mail = mail;
         }
     }
     
@@ -89,15 +85,15 @@ namespace Badminton_Client.BadmintonService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class AddUserResponse {
+    public partial class AddMemberResponse {
         
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddUserResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Badminton_Client.BadmintonService.AddUserResponseBody Body;
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddMemberResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.AddMemberResponseBody Body;
         
-        public AddUserResponse() {
+        public AddMemberResponse() {
         }
         
-        public AddUserResponse(Badminton_Client.BadmintonService.AddUserResponseBody Body) {
+        public AddMemberResponse(Badminton_Client.BadmintonService.AddMemberResponseBody Body) {
             this.Body = Body;
         }
     }
@@ -105,10 +101,17 @@ namespace Badminton_Client.BadmintonService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute()]
-    public partial class AddUserResponseBody {
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddMemberResponseBody {
         
-        public AddUserResponseBody() {
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string AddMemberResult;
+        
+        public AddMemberResponseBody() {
+        }
+        
+        public AddMemberResponseBody(string AddMemberResult) {
+            this.AddMemberResult = AddMemberResult;
         }
     }
     
@@ -140,41 +143,40 @@ namespace Badminton_Client.BadmintonService {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Badminton_Client.BadmintonService.AddUserResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.AddUser(Badminton_Client.BadmintonService.AddUserRequest request) {
-            return base.Channel.AddUser(request);
+        Badminton_Client.BadmintonService.AddMemberResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.AddMember(Badminton_Client.BadmintonService.AddMemberRequest request) {
+            return base.Channel.AddMember(request);
         }
         
-        public void AddUser(int medlemsId, string fornavn, string efternavn, string fodselsdato, string addresse, int postnr, string tlf, string email) {
-            Badminton_Client.BadmintonService.AddUserRequest inValue = new Badminton_Client.BadmintonService.AddUserRequest();
-            inValue.Body = new Badminton_Client.BadmintonService.AddUserRequestBody();
-            inValue.Body.medlemsId = medlemsId;
-            inValue.Body.fornavn = fornavn;
-            inValue.Body.efternavn = efternavn;
-            inValue.Body.fodselsdato = fodselsdato;
-            inValue.Body.addresse = addresse;
-            inValue.Body.postnr = postnr;
-            inValue.Body.tlf = tlf;
-            inValue.Body.email = email;
-            Badminton_Client.BadmintonService.AddUserResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddUser(inValue);
+        public string AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
+            Badminton_Client.BadmintonService.AddMemberRequest inValue = new Badminton_Client.BadmintonService.AddMemberRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.AddMemberRequestBody();
+            inValue.Body.firstName = firstName;
+            inValue.Body.surName = surName;
+            inValue.Body.cpr = cpr;
+            inValue.Body.address = address;
+            inValue.Body.zipCode = zipCode;
+            inValue.Body.phone = phone;
+            inValue.Body.mail = mail;
+            Badminton_Client.BadmintonService.AddMemberResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddMember(inValue);
+            return retVal.Body.AddMemberResult;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddUserResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.AddUserAsync(Badminton_Client.BadmintonService.AddUserRequest request) {
-            return base.Channel.AddUserAsync(request);
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddMemberResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.AddMemberAsync(Badminton_Client.BadmintonService.AddMemberRequest request) {
+            return base.Channel.AddMemberAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddUserResponse> AddUserAsync(int medlemsId, string fornavn, string efternavn, string fodselsdato, string addresse, int postnr, string tlf, string email) {
-            Badminton_Client.BadmintonService.AddUserRequest inValue = new Badminton_Client.BadmintonService.AddUserRequest();
-            inValue.Body = new Badminton_Client.BadmintonService.AddUserRequestBody();
-            inValue.Body.medlemsId = medlemsId;
-            inValue.Body.fornavn = fornavn;
-            inValue.Body.efternavn = efternavn;
-            inValue.Body.fodselsdato = fodselsdato;
-            inValue.Body.addresse = addresse;
-            inValue.Body.postnr = postnr;
-            inValue.Body.tlf = tlf;
-            inValue.Body.email = email;
-            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddUserAsync(inValue);
+        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddMemberResponse> AddMemberAsync(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
+            Badminton_Client.BadmintonService.AddMemberRequest inValue = new Badminton_Client.BadmintonService.AddMemberRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.AddMemberRequestBody();
+            inValue.Body.firstName = firstName;
+            inValue.Body.surName = surName;
+            inValue.Body.cpr = cpr;
+            inValue.Body.address = address;
+            inValue.Body.zipCode = zipCode;
+            inValue.Body.phone = phone;
+            inValue.Body.mail = mail;
+            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddMemberAsync(inValue);
         }
     }
 }
