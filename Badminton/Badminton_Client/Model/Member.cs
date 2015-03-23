@@ -11,13 +11,13 @@ namespace Badminton_Client
     {
         private string _firstName;
         private string _surName;
-        private int _cpr;
+        private string _cpr;
         private string _address;
-        private int _zipCode;
+        private string _zipCode;
         private string _phone;
         private string _mail;
 
-        public Member(string firstName, string surName, int cpr, string address, int zipCode, string phone, string mail)
+        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
         {
             _firstName = firstName;
             _surName = surName;
@@ -33,13 +33,13 @@ namespace Badminton_Client
             get { return _firstName; }
             set
             {
-                if (value != null && value != "")
+                if (!string.IsNullOrEmpty(value))
                 {
                     _firstName = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Empty or null not allowed" + value);
+                    throw new ArgumentException("Empty or null not allowed" + value);
                 }
             }
         }
@@ -49,29 +49,29 @@ namespace Badminton_Client
             get { return _surName; }
             set
             {
-                if (value != null && value != "")
+                if (!string.IsNullOrEmpty(value))
                 {
                     _surName = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Empty or null not allowed" + value);
+                    throw new ArgumentException("Empty or null not allowed" + value);
                 }
             }
         }
 
-        public int Cpr
+        public string Cpr
         {
             get { return _cpr; }
             set
             {
-                if (value != null && value >= 1000000000 && value <= 9999999999)
+                if (!string.IsNullOrEmpty(value) && value.Length == 10)
                 {
                     _cpr = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Empty or null not allowed and must be 10 digits" + value);
+                    throw new ArgumentException("Empty or null not allowed and must be 10 digits" + value);
                 }
             }
         }
@@ -81,29 +81,29 @@ namespace Badminton_Client
             get { return _address; }
             set
             {
-                if (value != null && value != "")
+                if (!string.IsNullOrEmpty(value))
                 {
                     _address = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Empty or null not allowed" + value);
+                    throw new ArgumentException("Empty or null not allowed" + value);
                 }
             }
         }
 
-        public int ZipCode
+        public string ZipCode
         {
             get { return _zipCode; }
             set
             {
-                if (value != null && value >= 1000 && value <= 9999)
+                if (!string.IsNullOrEmpty(value) && value.Length == 4)
                 {
                     _zipCode = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Empty or null not allowed and must be 4 digits" + value);
+                    throw new ArgumentException("Empty or null not allowed and must be 4 digits" + value);
                 }
             }
         }
@@ -113,13 +113,13 @@ namespace Badminton_Client
             get { return _phone; }
             set
             {
-                if (value != null && value != "" && value.Length == 8)
+                if (!string.IsNullOrEmpty(value) && value.Length == 8)
                 {
                     _phone = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Empty or null not allowed and must contain 8 digits" + value);
+                    throw new ArgumentException("Empty or null not allowed and must contain 8 digits" + value);
                 }
             }
         }
@@ -131,13 +131,13 @@ namespace Badminton_Client
             {
                 string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
 
-                if (value != null && value != "" && Regex.IsMatch(value, pattern))
+                if (!string.IsNullOrEmpty(value) && Regex.IsMatch(value, pattern))
                 {
                     _mail = value;
                 }
                 else
                 {
-                    throw new ArgumentOutOfRangeException("Empty or null not allowed and must be correct format" + value);
+                    throw new ArgumentException("Empty or null not allowed and must be correct format" + value);
                 }
             }
         }
