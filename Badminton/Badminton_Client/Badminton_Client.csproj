@@ -60,9 +60,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Control\AddMemberHandler.cs" />
-    <Compile Include="Model\Member.cs" />
-    <Compile Include="Model\MemberCatalog.cs" />
     <Compile Include="Service References\BadmintonService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -77,12 +74,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ConnectToWS_TEST.cs" />
+    <Compile Include="Control\AddMemberHandler.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Member.cs" />
+    <Compile Include="Model\MemberCatalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

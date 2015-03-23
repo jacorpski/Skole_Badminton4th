@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Badminton_Client
@@ -56,43 +57,115 @@ namespace Badminton_Client
         public string FirstName
         {
             get { return _firstName; }
-            set { _firstName = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _firstName = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed" + value);
+                }
+            }
         }
 
         public string SurName
         {
             get { return _surName; }
-            set { _surName = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _surName = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed" + value);
+                }
+            }
         }
 
         public string Cpr
         {
             get { return _cpr; }
-            set { _cpr = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && value.Length == 10)
+                {
+                    _cpr = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed and must be 10 digits" + value);
+                }
+            }
         }
 
         public string Address
         {
             get { return _address; }
-            set { _address = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _address = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed" + value);
+                }
+            }
         }
 
         public string ZipCode
         {
             get { return _zipCode; }
-            set { _zipCode = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && value.Length == 4)
+                {
+                    _zipCode = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed and must be 4 digits" + value);
+                }
+            }
         }
 
         public string Phone
         {
             get { return _phone; }
-            set { _phone = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value) && value.Length == 8)
+                {
+                    _phone = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed and must contain 8 digits" + value);
+                }
+            }
         }
 
         public string Mail
         {
             get { return _mail; }
-            set { _mail = value; }
+            set
+            {
+                string pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+                if (!string.IsNullOrEmpty(value) && Regex.IsMatch(value, pattern))
+                {
+                    _mail = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed and must be correct format" + value);
+                }
+            }
         }
 
         public override string ToString()
