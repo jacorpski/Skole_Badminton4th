@@ -35,5 +35,10 @@ namespace Badminton_Client
                 MessageBox.Show(result);
             }
         }
+
+        public void SetMemberAsInactive(int memberId)
+        {
+            //Contact webservice here
+        }
     }
 }

@@ -8,6 +8,8 @@ namespace Badminton_Client
 {
     public class Member
     {
+        private int _memberId;
+        private bool _isActive;
         private string _firstName;
         private string _surName;
         private string _cpr;
@@ -16,7 +18,19 @@ namespace Badminton_Client
         private string _phone;
         private string _mail;
 
-        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
+        public Member(bool isActive, string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
+        {
+            _isActive = isActive;
+            _firstName = firstName;
+            _surName = surName;
+            _cpr = cpr;
+            _address = address;
+            _zipCode = zipCode;
+            _phone = phone;
+            _mail = mail;
+        }
+
+        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
         {
             _firstName = firstName;
             _surName = surName;
@@ -25,6 +39,18 @@ namespace Badminton_Client
             _zipCode = zipCode;
             _phone = phone;
             _mail = mail;
+        }
+
+        public int MemberId
+        {
+            get { return _memberId; }
+            set { _memberId = value; }
+        }
+
+        public bool IsActive
+        {
+            get { return _isActive; }
+            set { _isActive = value; }
         }
 
         public string FirstName
