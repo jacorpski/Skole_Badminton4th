@@ -55,6 +55,38 @@ namespace Badminton_WebService
             }
         }
 
+        [WebMethod]
+        public string SetMemberAsInactive(int memberId)
+        {
+            DBConnector dbConnector = new DBConnector();
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+                    cmd.CommandText =
+                        "UPDATE members SET isActive = 0 WHERE P_ID = @memberId";
+                    cmd.Parameters.Add("@memberId", MySqlDbType.Int32).Value = memberId;
+
+                    //Execute command
+                    cmd.ExecuteNonQuery();
+
+                    //Close connection
+                    dbConnector.CloseConnection();
+
+                    return "Member updated.";
+                }
+                catch (Exception e)
+                {
+                    return "Could not update member.";
+                }
+            }
+            else
+            {
+                return "Could not connect to the Database.";
+            }
+        }
+
 
     }
 }
