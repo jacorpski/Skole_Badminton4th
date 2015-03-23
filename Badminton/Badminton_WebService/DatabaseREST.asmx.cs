@@ -18,25 +18,73 @@ namespace Badminton_WebService
     public class DatabaseREST : System.Web.Services.WebService
     {
         [WebMethod]
-        public void AddMember(string firstName, string surName, int cpr, string address, int zipCode, string phone, string mail)
+        public string AddMember(string firstName, string surName, int cpr, string address, int zipCode, string phone, string mail)
         {
             DBConnector dbConnector = new DBConnector();
-            dbConnector.OpenConnection();
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+                    cmd.CommandText =
+                        "INSERT INTO members (firstName, surName, cpr, address, postnr, phone, mail) VALUES (@firstName, @surName, @cpr, @address, @zipCode, @phone, @mail)";
+                    cmd.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
+                    cmd.Parameters.Add("@surName", MySqlDbType.VarChar).Value = surName;
+                    cmd.Parameters.Add("@cpr", MySqlDbType.Int32).Value = cpr;
+                    cmd.Parameters.Add("@address", MySqlDbType.VarChar).Value = address;
+                    cmd.Parameters.Add("@zipCode", MySqlDbType.Int32).Value = zipCode;
+                    cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
+                    cmd.Parameters.Add("@mail", MySqlDbType.VarChar).Value = mail;
 
-            MySqlCommand cmd = dbConnector.connection.CreateCommand();
-            cmd.CommandText = "INSERT INTO members (firstName, surName, cpr, address, postnr, phone, mail) VALUES (@firstName, @surName, @cpr, @address, @zipCode, @phone, @mail)";
-            cmd.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
-            cmd.Parameters.Add("@surName", MySqlDbType.VarChar).Value = surName;
-            cmd.Parameters.Add("@cpr", MySqlDbType.Int32).Value = cpr;
-            cmd.Parameters.Add("@address", MySqlDbType.VarChar).Value = address;
-            cmd.Parameters.Add("@zipCode", MySqlDbType.Int32).Value = zipCode;
-            cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
-            cmd.Parameters.Add("@mail", MySqlDbType.VarChar).Value = mail;
+                    //Execute command
+                    cmd.ExecuteNonQuery();
 
-            //Execute command
-            cmd.ExecuteNonQuery();
+                    //Close connection
+                    dbConnector.CloseConnection();
 
-            dbConnector.CloseConnection();
+                    return "New member inserted.";
+                }
+                catch (Exception e)
+                {
+                    return "Could not insert new member.";
+                }
+            }
+            else
+            {
+                return "Could not connect to the Database.";
+            }
+        }
+
+        [WebMethod]
+        public string SetMemberAsInactive(int memberId)
+        {
+            DBConnector dbConnector = new DBConnector();
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+                    cmd.CommandText =
+                        "UPDATE members SET isActive = 0 WHERE P_ID = @memberId";
+                    cmd.Parameters.Add("@memberId", MySqlDbType.Int32).Value = memberId;
+
+                    //Execute command
+                    cmd.ExecuteNonQuery();
+
+                    //Close connection
+                    dbConnector.CloseConnection();
+
+                    return "Member updated.";
+                }
+                catch (Exception e)
+                {
+                    return "Could not update member.";
+                }
+            }
+            else
+            {
+                return "Could not connect to the Database.";
+            }
         }
 
 
