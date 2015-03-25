@@ -60,6 +60,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddMember.xaml.cs">
+      <DependentUpon>AddMember.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddTeam.xaml.cs">
+      <DependentUpon>AddTeam.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\AddTeamHandler.cs" />
     <Compile Include="Model\Team.cs" />
     <Compile Include="Model\TeamCatalog.cs" />
     <Compile Include="Service References\BadmintonService\Reference.cs">
@@ -67,6 +74,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Page Include="AddMember.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="AddTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

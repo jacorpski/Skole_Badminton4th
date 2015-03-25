@@ -20,25 +20,26 @@ namespace Badminton_Client
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddMember : Window
     {
-        public MainWindow()
+        public AddMember()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddMember addMember = new AddMember();
-            addMember.Show();
-            this.Close();
-        }
+            string firstName = firstNameText.Text;
+            string surName = surNameText.Text;
+            string cpr = cprText.Text;
+            string address = addressText.Text;
+            string zipCode = zipCodeText.Text;
+            string phone = phoneText.Text;
+            string mail = mailText.Text;
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            AddTeam addTeam = new AddTeam();
-            addTeam.Show();
-            this.Close();
+            AddMemberHandler addMemberHandler = new AddMemberHandler();
+
+            addMemberHandler.AddMember(firstName, surName, cpr, address, zipCode, phone, mail);
         }
     }
 }

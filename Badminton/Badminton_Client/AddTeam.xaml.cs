@@ -10,35 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Badminton_Client.BadmintonService;
 using Badminton_Client.Control;
 
 namespace Badminton_Client
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddTeam.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddTeam : Window
     {
-        public MainWindow()
+        public AddTeam()
         {
             InitializeComponent();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddMember addMember = new AddMember();
-            addMember.Show();
-            this.Close();
-        }
+            string name = nameText.Text;
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            AddTeam addTeam = new AddTeam();
-            addTeam.Show();
-            this.Close();
+            AddTeamHandler addTeamHandler = new AddTeamHandler();
+
+            addTeamHandler.AddTeam(name);
         }
     }
 }

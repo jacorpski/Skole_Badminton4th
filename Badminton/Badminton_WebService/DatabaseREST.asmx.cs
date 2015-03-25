@@ -66,7 +66,7 @@ namespace Badminton_WebService
                 {
                     MySqlCommand cmd = dbConnector.connection.CreateCommand();
 
-                    cmd.CommandText = "INSERT INTO team (name) VALUES (@name)";
+                    cmd.CommandText = "INSERT INTO teams (name) VALUES (@name)";
 
                     cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
 
