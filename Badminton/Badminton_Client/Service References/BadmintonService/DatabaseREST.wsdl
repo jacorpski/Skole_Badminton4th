@@ -22,6 +22,34 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="AddTeam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddTeamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="AddTeamResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMemberAsInactive">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetMemberAsInactiveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SetMemberAsInactiveResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AddMemberSoapIn">
@@ -30,10 +58,30 @@
   <wsdl:message name="AddMemberSoapOut">
     <wsdl:part name="parameters" element="tns:AddMemberResponse" />
   </wsdl:message>
+  <wsdl:message name="AddTeamSoapIn">
+    <wsdl:part name="parameters" element="tns:AddTeam" />
+  </wsdl:message>
+  <wsdl:message name="AddTeamSoapOut">
+    <wsdl:part name="parameters" element="tns:AddTeamResponse" />
+  </wsdl:message>
+  <wsdl:message name="SetMemberAsInactiveSoapIn">
+    <wsdl:part name="parameters" element="tns:SetMemberAsInactive" />
+  </wsdl:message>
+  <wsdl:message name="SetMemberAsInactiveSoapOut">
+    <wsdl:part name="parameters" element="tns:SetMemberAsInactiveResponse" />
+  </wsdl:message>
   <wsdl:portType name="DatabaseRESTSoap">
     <wsdl:operation name="AddMember">
       <wsdl:input message="tns:AddMemberSoapIn" />
       <wsdl:output message="tns:AddMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <wsdl:input message="tns:AddTeamSoapIn" />
+      <wsdl:output message="tns:AddTeamSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SetMemberAsInactive">
+      <wsdl:input message="tns:SetMemberAsInactiveSoapIn" />
+      <wsdl:output message="tns:SetMemberAsInactiveSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DatabaseRESTSoap" type="tns:DatabaseRESTSoap">
@@ -47,11 +95,47 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <soap:operation soapAction="http://tempuri.org/AddTeam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMemberAsInactive">
+      <soap:operation soapAction="http://tempuri.org/SetMemberAsInactive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="DatabaseRESTSoap12" type="tns:DatabaseRESTSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="AddMember">
       <soap12:operation soapAction="http://tempuri.org/AddMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddTeam">
+      <soap12:operation soapAction="http://tempuri.org/AddTeam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetMemberAsInactive">
+      <soap12:operation soapAction="http://tempuri.org/SetMemberAsInactive" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

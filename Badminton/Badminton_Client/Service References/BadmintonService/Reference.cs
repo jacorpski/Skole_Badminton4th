@@ -21,6 +21,20 @@ namespace Badminton_Client.BadmintonService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddMember", ReplyAction="*")]
         System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddMemberResponse> AddMemberAsync(Badminton_Client.BadmintonService.AddMemberRequest request);
+        
+        // CODEGEN: Generating message contract since element name name from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddTeam", ReplyAction="*")]
+        Badminton_Client.BadmintonService.AddTeamResponse AddTeam(Badminton_Client.BadmintonService.AddTeamRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddTeam", ReplyAction="*")]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddTeamResponse> AddTeamAsync(Badminton_Client.BadmintonService.AddTeamRequest request);
+        
+        // CODEGEN: Generating message contract since element name SetMemberAsInactiveResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetMemberAsInactive", ReplyAction="*")]
+        Badminton_Client.BadmintonService.SetMemberAsInactiveResponse SetMemberAsInactive(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetMemberAsInactive", ReplyAction="*")]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.SetMemberAsInactiveResponse> SetMemberAsInactiveAsync(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -115,6 +129,142 @@ namespace Badminton_Client.BadmintonService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddTeamRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddTeam", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.AddTeamRequestBody Body;
+        
+        public AddTeamRequest() {
+        }
+        
+        public AddTeamRequest(Badminton_Client.BadmintonService.AddTeamRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddTeamRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string name;
+        
+        public AddTeamRequestBody() {
+        }
+        
+        public AddTeamRequestBody(string name) {
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class AddTeamResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="AddTeamResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.AddTeamResponseBody Body;
+        
+        public AddTeamResponse() {
+        }
+        
+        public AddTeamResponse(Badminton_Client.BadmintonService.AddTeamResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class AddTeamResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string AddTeamResult;
+        
+        public AddTeamResponseBody() {
+        }
+        
+        public AddTeamResponseBody(string AddTeamResult) {
+            this.AddTeamResult = AddTeamResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SetMemberAsInactiveRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetMemberAsInactive", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody Body;
+        
+        public SetMemberAsInactiveRequest() {
+        }
+        
+        public SetMemberAsInactiveRequest(Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SetMemberAsInactiveRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int memberId;
+        
+        public SetMemberAsInactiveRequestBody() {
+        }
+        
+        public SetMemberAsInactiveRequestBody(int memberId) {
+            this.memberId = memberId;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class SetMemberAsInactiveResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetMemberAsInactiveResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.SetMemberAsInactiveResponseBody Body;
+        
+        public SetMemberAsInactiveResponse() {
+        }
+        
+        public SetMemberAsInactiveResponse(Badminton_Client.BadmintonService.SetMemberAsInactiveResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class SetMemberAsInactiveResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string SetMemberAsInactiveResult;
+        
+        public SetMemberAsInactiveResponseBody() {
+        }
+        
+        public SetMemberAsInactiveResponseBody(string SetMemberAsInactiveResult) {
+            this.SetMemberAsInactiveResult = SetMemberAsInactiveResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface DatabaseRESTSoapChannel : Badminton_Client.BadmintonService.DatabaseRESTSoap, System.ServiceModel.IClientChannel {
     }
@@ -177,6 +327,56 @@ namespace Badminton_Client.BadmintonService {
             inValue.Body.phone = phone;
             inValue.Body.mail = mail;
             return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddMemberAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Badminton_Client.BadmintonService.AddTeamResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.AddTeam(Badminton_Client.BadmintonService.AddTeamRequest request) {
+            return base.Channel.AddTeam(request);
+        }
+        
+        public string AddTeam(string name) {
+            Badminton_Client.BadmintonService.AddTeamRequest inValue = new Badminton_Client.BadmintonService.AddTeamRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.AddTeamRequestBody();
+            inValue.Body.name = name;
+            Badminton_Client.BadmintonService.AddTeamResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddTeam(inValue);
+            return retVal.Body.AddTeamResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddTeamResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.AddTeamAsync(Badminton_Client.BadmintonService.AddTeamRequest request) {
+            return base.Channel.AddTeamAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddTeamResponse> AddTeamAsync(string name) {
+            Badminton_Client.BadmintonService.AddTeamRequest inValue = new Badminton_Client.BadmintonService.AddTeamRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.AddTeamRequestBody();
+            inValue.Body.name = name;
+            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddTeamAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Badminton_Client.BadmintonService.SetMemberAsInactiveResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.SetMemberAsInactive(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request) {
+            return base.Channel.SetMemberAsInactive(request);
+        }
+        
+        public string SetMemberAsInactive(int memberId) {
+            Badminton_Client.BadmintonService.SetMemberAsInactiveRequest inValue = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody();
+            inValue.Body.memberId = memberId;
+            Badminton_Client.BadmintonService.SetMemberAsInactiveResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).SetMemberAsInactive(inValue);
+            return retVal.Body.SetMemberAsInactiveResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.SetMemberAsInactiveResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.SetMemberAsInactiveAsync(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request) {
+            return base.Channel.SetMemberAsInactiveAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.SetMemberAsInactiveResponse> SetMemberAsInactiveAsync(int memberId) {
+            Badminton_Client.BadmintonService.SetMemberAsInactiveRequest inValue = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody();
+            inValue.Body.memberId = memberId;
+            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).SetMemberAsInactiveAsync(inValue);
         }
     }
 }
