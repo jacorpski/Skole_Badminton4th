@@ -56,6 +56,38 @@ namespace Badminton_WebService
         }
 
         [WebMethod]
+        public string AddTeam(string name)
+        {
+            DBConnector dbConnector = new DBConnector();
+
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "INSERT INTO team (name) VALUES (@name)";
+
+                    cmd.Parameters.Add("@name", MySqlDbType.VarChar).Value = name;
+
+                    cmd.ExecuteNonQuery();
+
+                    dbConnector.CloseConnection();
+
+                    return "New team inserted";
+                }
+                catch (Exception e)
+                {
+                    return "Could not insert new team.";
+                }
+            }
+            else
+            {
+                return "Could not connect to the Database";
+            }
+        }
+
+        [WebMethod]
         public string SetMemberAsInactive(int memberId)
         {
             DBConnector dbConnector = new DBConnector();
