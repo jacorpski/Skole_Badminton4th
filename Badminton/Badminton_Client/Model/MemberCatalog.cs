@@ -23,16 +23,33 @@ namespace Badminton_Client
 
             DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
 
-            string result = soapClient.AddMember(member.FirstName, member.SurName, member.Cpr, member.Address,
+            int result = soapClient.AddMember(member.FirstName, member.SurName, member.Cpr, member.Address,
                 member.ZipCode, member.Phone, member.Mail);
 
-            if (result.Equals("New member inserted."))
+            /*if (result.Equals("New member inserted."))
             {
                 MessageBox.Show("Medlemmet er nu tilføjet");
             }
             else
             {
                 MessageBox.Show(result);
+            }*/
+
+            if (result == 1)
+            {
+                MessageBox.Show("Medlemmet er nu tilføjet til databasen.");
+            }
+            else if (result == 4)
+            {
+                MessageBox.Show("CPR nummeret eksistere allerede.");
+            }
+            else if (result == 5)
+            {
+                MessageBox.Show("Øhhh...");
+            }
+            else
+            {
+                MessageBox.Show("Der skete en uventet fejl.");
             }
         }
 

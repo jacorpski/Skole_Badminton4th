@@ -24,15 +24,15 @@ namespace Badminton_Client.Model
 
             DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
 
-            string result = soapClient.AddTeam(team.Name);
+            int result = soapClient.AddTeam(team.Name);
 
-            if (result.Equals("New team inserted"))
+            if(result == 1)
             {
                 MessageBox.Show("Holdet er nu tilføjet.");
             }
             else
             {
-                MessageBox.Show(result);
+                MessageBox.Show("Der skete en uventet fejl");
             }
         }
     }

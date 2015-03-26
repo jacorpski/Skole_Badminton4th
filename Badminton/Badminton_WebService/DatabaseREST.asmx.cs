@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Services;
 using MySql.Data.MySqlClient;
+using System.Windows;
 
 namespace Badminton_WebService
 {
@@ -18,7 +19,7 @@ namespace Badminton_WebService
     public class DatabaseREST : System.Web.Services.WebService
     {
         [WebMethod]
-        public string AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
+        public int AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
         {
             DBConnector dbConnector = new DBConnector();
             if (dbConnector.OpenConnection())
@@ -26,11 +27,29 @@ namespace Badminton_WebService
                 try
                 {
                     MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    try
+                    {
+                        cmd.CommandText = "SELECT COUNT(*) FROM members WHERE cpr = @cpr";
+                        cmd.Parameters.Add("@cpr", MySqlDbType.VarChar).Value = cpr;
+
+                        Int32 count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                        if (count > 0)
+                        {
+                            return 4;
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        return 2;
+                    }
+
                     cmd.CommandText =
                         "INSERT INTO members (firstName, surName, cpr, address, zipCode, phone, mail) VALUES (@firstName, @surName, @cpr, @address, @zipCode, @phone, @mail)";
                     cmd.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
                     cmd.Parameters.Add("@surName", MySqlDbType.VarChar).Value = surName;
-                    cmd.Parameters.Add("@cpr", MySqlDbType.VarChar).Value = cpr;
+                    //cmd.Parameters.Add("@cpr", MySqlDbType.VarChar).Value = cpr;
                     cmd.Parameters.Add("@address", MySqlDbType.VarChar).Value = address;
                     cmd.Parameters.Add("@zipCode", MySqlDbType.VarChar).Value = zipCode;
                     cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
@@ -42,21 +61,21 @@ namespace Badminton_WebService
                     //Close connection
                     dbConnector.CloseConnection();
 
-                    return "New member inserted.";
+                    return 1;
                 }
                 catch (Exception e)
                 {
-                    return "Could not insert new member.";
+                    return 5;
                 }
             }
             else
             {
-                return "Could not connect to the Database.";
+                return 3;
             }
         }
 
         [WebMethod]
-        public string AddTeam(string name)
+        public int AddTeam(string name)
         {
             DBConnector dbConnector = new DBConnector();
 
@@ -74,21 +93,21 @@ namespace Badminton_WebService
 
                     dbConnector.CloseConnection();
 
-                    return "New team inserted";
+                    return 1;
                 }
                 catch (Exception e)
                 {
-                    return "Could not insert new team.";
+                    return 2;
                 }
             }
             else
             {
-                return "Could not connect to the Database";
+                return 3;
             }
         }
 
         [WebMethod]
-        public string SetMemberAsInactive(int memberId)
+        public int SetMemberAsInactive(int memberId)
         {
             DBConnector dbConnector = new DBConnector();
             if (dbConnector.OpenConnection())
@@ -106,16 +125,16 @@ namespace Badminton_WebService
                     //Close connection
                     dbConnector.CloseConnection();
 
-                    return "Member updated.";
+                    return 1;
                 }
                 catch (Exception e)
                 {
-                    return "Could not update member.";
+                    return 2;
                 }
             }
             else
             {
-                return "Could not connect to the Database.";
+                return 3;
             }
         }
 

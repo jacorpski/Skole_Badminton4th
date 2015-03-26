@@ -29,12 +29,11 @@ namespace Badminton_Client.BadmintonService {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/AddTeam", ReplyAction="*")]
         System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddTeamResponse> AddTeamAsync(Badminton_Client.BadmintonService.AddTeamRequest request);
         
-        // CODEGEN: Generating message contract since element name SetMemberAsInactiveResult from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetMemberAsInactive", ReplyAction="*")]
-        Badminton_Client.BadmintonService.SetMemberAsInactiveResponse SetMemberAsInactive(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request);
+        int SetMemberAsInactive(int memberId);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/SetMemberAsInactive", ReplyAction="*")]
-        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.SetMemberAsInactiveResponse> SetMemberAsInactiveAsync(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request);
+        System.Threading.Tasks.Task<int> SetMemberAsInactiveAsync(int memberId);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -118,13 +117,13 @@ namespace Badminton_Client.BadmintonService {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class AddMemberResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string AddMemberResult;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int AddMemberResult;
         
         public AddMemberResponseBody() {
         }
         
-        public AddMemberResponseBody(string AddMemberResult) {
+        public AddMemberResponseBody(int AddMemberResult) {
             this.AddMemberResult = AddMemberResult;
         }
     }
@@ -186,82 +185,14 @@ namespace Badminton_Client.BadmintonService {
     [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
     public partial class AddTeamResponseBody {
         
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string AddTeamResult;
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int AddTeamResult;
         
         public AddTeamResponseBody() {
         }
         
-        public AddTeamResponseBody(string AddTeamResult) {
+        public AddTeamResponseBody(int AddTeamResult) {
             this.AddTeamResult = AddTeamResult;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SetMemberAsInactiveRequest {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetMemberAsInactive", Namespace="http://tempuri.org/", Order=0)]
-        public Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody Body;
-        
-        public SetMemberAsInactiveRequest() {
-        }
-        
-        public SetMemberAsInactiveRequest(Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SetMemberAsInactiveRequestBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
-        public int memberId;
-        
-        public SetMemberAsInactiveRequestBody() {
-        }
-        
-        public SetMemberAsInactiveRequestBody(int memberId) {
-            this.memberId = memberId;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
-    public partial class SetMemberAsInactiveResponse {
-        
-        [System.ServiceModel.MessageBodyMemberAttribute(Name="SetMemberAsInactiveResponse", Namespace="http://tempuri.org/", Order=0)]
-        public Badminton_Client.BadmintonService.SetMemberAsInactiveResponseBody Body;
-        
-        public SetMemberAsInactiveResponse() {
-        }
-        
-        public SetMemberAsInactiveResponse(Badminton_Client.BadmintonService.SetMemberAsInactiveResponseBody Body) {
-            this.Body = Body;
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
-    public partial class SetMemberAsInactiveResponseBody {
-        
-        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
-        public string SetMemberAsInactiveResult;
-        
-        public SetMemberAsInactiveResponseBody() {
-        }
-        
-        public SetMemberAsInactiveResponseBody(string SetMemberAsInactiveResult) {
-            this.SetMemberAsInactiveResult = SetMemberAsInactiveResult;
         }
     }
     
@@ -297,7 +228,7 @@ namespace Badminton_Client.BadmintonService {
             return base.Channel.AddMember(request);
         }
         
-        public string AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
+        public int AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
             Badminton_Client.BadmintonService.AddMemberRequest inValue = new Badminton_Client.BadmintonService.AddMemberRequest();
             inValue.Body = new Badminton_Client.BadmintonService.AddMemberRequestBody();
             inValue.Body.firstName = firstName;
@@ -334,7 +265,7 @@ namespace Badminton_Client.BadmintonService {
             return base.Channel.AddTeam(request);
         }
         
-        public string AddTeam(string name) {
+        public int AddTeam(string name) {
             Badminton_Client.BadmintonService.AddTeamRequest inValue = new Badminton_Client.BadmintonService.AddTeamRequest();
             inValue.Body = new Badminton_Client.BadmintonService.AddTeamRequestBody();
             inValue.Body.name = name;
@@ -354,29 +285,12 @@ namespace Badminton_Client.BadmintonService {
             return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).AddTeamAsync(inValue);
         }
         
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        Badminton_Client.BadmintonService.SetMemberAsInactiveResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.SetMemberAsInactive(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request) {
-            return base.Channel.SetMemberAsInactive(request);
+        public int SetMemberAsInactive(int memberId) {
+            return base.Channel.SetMemberAsInactive(memberId);
         }
         
-        public string SetMemberAsInactive(int memberId) {
-            Badminton_Client.BadmintonService.SetMemberAsInactiveRequest inValue = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequest();
-            inValue.Body = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody();
-            inValue.Body.memberId = memberId;
-            Badminton_Client.BadmintonService.SetMemberAsInactiveResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).SetMemberAsInactive(inValue);
-            return retVal.Body.SetMemberAsInactiveResult;
-        }
-        
-        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.SetMemberAsInactiveResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.SetMemberAsInactiveAsync(Badminton_Client.BadmintonService.SetMemberAsInactiveRequest request) {
-            return base.Channel.SetMemberAsInactiveAsync(request);
-        }
-        
-        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.SetMemberAsInactiveResponse> SetMemberAsInactiveAsync(int memberId) {
-            Badminton_Client.BadmintonService.SetMemberAsInactiveRequest inValue = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequest();
-            inValue.Body = new Badminton_Client.BadmintonService.SetMemberAsInactiveRequestBody();
-            inValue.Body.memberId = memberId;
-            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).SetMemberAsInactiveAsync(inValue);
+        public System.Threading.Tasks.Task<int> SetMemberAsInactiveAsync(int memberId) {
+            return base.Channel.SetMemberAsInactiveAsync(memberId);
         }
     }
 }

@@ -125,6 +125,9 @@
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddMemberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddTeamResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BadmintonService\DatabaseREST.wsdl" />
   </ItemGroup>
   <ItemGroup>
