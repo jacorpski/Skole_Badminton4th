@@ -43,10 +43,6 @@ namespace Badminton_Client
             {
                 MessageBox.Show("CPR nummeret eksistere allerede.");
             }
-            else if (result == 5)
-            {
-                MessageBox.Show("Øhhh...");
-            }
             else
             {
                 MessageBox.Show("Der skete en uventet fejl.");

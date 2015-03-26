@@ -19,9 +19,8 @@ namespace Badminton_Client
         private string _phone;
         private string _mail;
 
-        public Member(bool isActive, string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
+        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
         {
-            IsActive = isActive;
             FirstName = firstName;
             SurName = surName;
             Cpr = cpr;
@@ -29,17 +28,6 @@ namespace Badminton_Client
             ZipCode = zipCode;
             Phone = phone;
             Mail = mail;
-        }
-
-        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
-        {
-            _firstName = firstName;
-            _surName = surName;
-            _cpr = cpr;
-            _address = address;
-            _zipCode = zipCode;
-            _phone = phone;
-            _mail = mail;
         }
 
         public int MemberId
