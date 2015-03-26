@@ -21,14 +21,14 @@ namespace Badminton_Client
 
         public Member(bool isActive, string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
         {
-            _isActive = isActive;
-            _firstName = firstName;
-            _surName = surName;
-            _cpr = cpr;
-            _address = address;
-            _zipCode = zipCode;
-            _phone = phone;
-            _mail = mail;
+            IsActive = isActive;
+            FirstName = firstName;
+            SurName = surName;
+            Cpr = cpr;
+            Address = address;
+            ZipCode = zipCode;
+            Phone = phone;
+            Mail = mail;
         }
 
         public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)

@@ -11,10 +11,11 @@ namespace Badminton_Client.Model
         private int _teamId;
         private string _name;
 
-        public Team(string name)
+        public Team(string name, int teamId = 0)
         {
             Name = name;
         }
+
 
         public int TeamId
         {
@@ -25,7 +26,17 @@ namespace Badminton_Client.Model
         public string Name
         {
             get { return _name; }
-            set { _name = value; }
+            set
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    _name = value;
+                }
+                else
+                {
+                    throw new ArgumentException("Empty or null not allowed" + value);
+                }
+            }
         }
 
 

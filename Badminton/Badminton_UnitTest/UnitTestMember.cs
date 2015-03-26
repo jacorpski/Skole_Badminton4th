@@ -6,7 +6,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Badminton_UnitTest
 {
     [TestClass]
-    public class UnitTest1
+    public class UnitTestMember
     {
         private Member testMember = new Member(true, "Bobjones", "Jensen", "1234567891", "Andevej 1", "1234", "12345678",
             "bobjones@mail.dk");
@@ -16,6 +16,23 @@ namespace Badminton_UnitTest
         public void TestMethod1()
         {
             Assert.IsNotNull(testMember);
+        }
+
+        [TestMethod]
+        //Makes sure Member cant be created with nulls
+        public void TestMethod31()
+        {
+            try
+            {
+                Member testMemberTwo = new Member(true, null, "Jensen", "1234567891", "Andevej 1", "1234", "12345678",
+                    "bobjones@mail.dk");
+                Assert.IsNotNull(testMemberTwo.FirstName);
+                Assert.Fail("Argument exception expected");
+            }
+            catch (ArgumentException ae)
+            {
+                //ok
+            }
         }
 
         [TestMethod]
