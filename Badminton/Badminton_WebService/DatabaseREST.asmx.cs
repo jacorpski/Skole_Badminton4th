@@ -19,6 +19,39 @@ namespace Badminton_WebService
     public class DatabaseREST : System.Web.Services.WebService
     {
         [WebMethod]
+        public int AssignMemberToTeam(int memberId, int teamId)
+        {
+            DBConnector dbConnector = new DBConnector();
+
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "UPDATE members SET FK_teamId = @teamId WHERE memberId = @memberId";
+
+                    cmd.Parameters.Add("@teamId", MySqlDbType.Int32).Value = teamId;
+                    cmd.Parameters.Add("@memberId", MySqlDbType.Int32).Value = memberId;
+
+                    cmd.ExecuteNonQuery();
+
+                    dbConnector.CloseConnection();
+
+                    return 1;
+                }
+                catch (Exception e)
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                return 3;
+            }
+        }
+
+        [WebMethod]
         public int AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
         {
             DBConnector dbConnector = new DBConnector();
