@@ -31,6 +31,7 @@ namespace Badminton_Client
         {
             string firstName = firstNameText.Text;
             string surName = surNameText.Text;
+            string password = passwordBox.Password;
             string cpr = cprText.Text;
             string address = addressText.Text;
             string zipCode = zipCodeText.Text;
@@ -39,7 +40,7 @@ namespace Badminton_Client
 
             AddMemberHandler addMemberHandler = new AddMemberHandler();
 
-            addMemberHandler.AddMember(firstName, surName, cpr, address, zipCode, phone, mail);
+            addMemberHandler.AddMember(firstName, surName, password, cpr, address, zipCode, phone, mail);
         }
     }
 }

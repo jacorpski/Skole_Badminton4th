@@ -8,7 +8,7 @@ namespace Badminton_UnitTest
     [TestClass]
     public class UnitTestMember
     {
-        private Member testMember = new Member(true, "Bobjones", "Jensen", "1234567891", "Andevej 1", "1234", "12345678",
+        private Member testMember = new Member("Bobjones", "Jensen", "1234", "1234567891", "Andevej 1", "1234", "12345678",
             "bobjones@mail.dk");
 
         [TestMethod]
@@ -24,7 +24,7 @@ namespace Badminton_UnitTest
         {
             try
             {
-                Member testMemberTwo = new Member(true, null, "Jensen", "1234567891", "Andevej 1", "1234", "12345678",
+                Member testMemberTwo = new Member(null, "Jensen", "1234", "1234567891", "Andevej 1", "1234", "12345678",
                     "bobjones@mail.dk");
                 Assert.IsNotNull(testMemberTwo.FirstName);
                 Assert.Fail("Argument exception expected");

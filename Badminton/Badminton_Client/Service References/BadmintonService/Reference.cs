@@ -66,26 +66,30 @@ namespace Badminton_Client.BadmintonService {
         public string surName;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=2)]
-        public string cpr;
+        public string password;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=3)]
-        public string address;
+        public string cpr;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=4)]
-        public string zipCode;
+        public string address;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=5)]
-        public string phone;
+        public string zipCode;
         
         [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=6)]
+        public string phone;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=7)]
         public string mail;
         
         public AddMemberRequestBody() {
         }
         
-        public AddMemberRequestBody(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
+        public AddMemberRequestBody(string firstName, string surName, string password, string cpr, string address, string zipCode, string phone, string mail) {
             this.firstName = firstName;
             this.surName = surName;
+            this.password = password;
             this.cpr = cpr;
             this.address = address;
             this.zipCode = zipCode;
@@ -228,11 +232,12 @@ namespace Badminton_Client.BadmintonService {
             return base.Channel.AddMember(request);
         }
         
-        public int AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
+        public int AddMember(string firstName, string surName, string password, string cpr, string address, string zipCode, string phone, string mail) {
             Badminton_Client.BadmintonService.AddMemberRequest inValue = new Badminton_Client.BadmintonService.AddMemberRequest();
             inValue.Body = new Badminton_Client.BadmintonService.AddMemberRequestBody();
             inValue.Body.firstName = firstName;
             inValue.Body.surName = surName;
+            inValue.Body.password = password;
             inValue.Body.cpr = cpr;
             inValue.Body.address = address;
             inValue.Body.zipCode = zipCode;
@@ -247,11 +252,12 @@ namespace Badminton_Client.BadmintonService {
             return base.Channel.AddMemberAsync(request);
         }
         
-        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddMemberResponse> AddMemberAsync(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail) {
+        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.AddMemberResponse> AddMemberAsync(string firstName, string surName, string password, string cpr, string address, string zipCode, string phone, string mail) {
             Badminton_Client.BadmintonService.AddMemberRequest inValue = new Badminton_Client.BadmintonService.AddMemberRequest();
             inValue.Body = new Badminton_Client.BadmintonService.AddMemberRequestBody();
             inValue.Body.firstName = firstName;
             inValue.Body.surName = surName;
+            inValue.Body.password = password;
             inValue.Body.cpr = cpr;
             inValue.Body.address = address;
             inValue.Body.zipCode = zipCode;
