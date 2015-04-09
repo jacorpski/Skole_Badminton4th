@@ -44,5 +44,31 @@ namespace Badminton_Client
         {
             //Contact webservice here
         }
+
+        public void AssignMemberToTeam(int memberId, int teamId)
+        {
+            //opdater object
+            Member member = FindMemberOnId(memberId);
+            member.MemberId = memberId;
+
+            //opdater databasen
+            DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
+
+            int result = soapClient.AssignMemberToTeam(memberId, teamId);
+
+            if (result == 1)
+            {
+                MessageBox.Show("Medlemmet er nu tilføjet til holdet.");
+            }
+            else
+            {
+                MessageBox.Show("Der skete en uventet fejl.");
+            }
+        }
+
+        public Member FindMemberOnId(int memberId)
+        {
+            return _catalog.FirstOrDefault(member => member.MemberId == memberId);
+        }
     }
 }

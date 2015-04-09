@@ -26,5 +26,10 @@ namespace Badminton_Client.Control
         {
             _memberCatalog.SetMemberAsInactive(memberId);
         }
+
+        public void AssignMemberToTeam(int memberId, int teamId)
+        {
+            _memberCatalog.AssignMemberToTeam(memberId, teamId);
+        }
     }
 }
