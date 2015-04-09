@@ -23,17 +23,8 @@ namespace Badminton_Client
 
             DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
 
-            int result = soapClient.AddMember(member.FirstName, member.SurName, member.Cpr, member.Address,
+            int result = soapClient.AddMember(member.FirstName, member.SurName, member.Password, member.Cpr, member.Address,
                 member.ZipCode, member.Phone, member.Mail);
-
-            /*if (result.Equals("New member inserted."))
-            {
-                MessageBox.Show("Medlemmet er nu tilføjet");
-            }
-            else
-            {
-                MessageBox.Show(result);
-            }*/
 
             if (result == 1)
             {

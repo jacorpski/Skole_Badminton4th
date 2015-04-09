@@ -13,16 +13,18 @@ namespace Badminton_Client
         private bool _isActive;
         private string _firstName;
         private string _surName;
+        private string _password;
         private string _cpr;
         private string _address;
         private string _zipCode;
         private string _phone;
         private string _mail;
 
-        public Member(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
+        public Member(string firstName, string surName, string password, string cpr, string address, string zipCode, string phone, string mail, int memberId = 0)
         {
             FirstName = firstName;
             SurName = surName;
+            Password = password;
             Cpr = cpr;
             Address = address;
             ZipCode = zipCode;
@@ -72,6 +74,12 @@ namespace Badminton_Client
                     throw new ArgumentException("Empty or null not allowed" + value);
                 }
             }
+        }
+
+        public string Password
+        {
+            get { return _password; }
+            set { _password = value; }
         }
 
         public string Cpr

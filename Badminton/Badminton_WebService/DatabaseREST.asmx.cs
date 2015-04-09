@@ -52,7 +52,7 @@ namespace Badminton_WebService
         }
 
         [WebMethod]
-        public int AddMember(string firstName, string surName, string cpr, string address, string zipCode, string phone, string mail)
+        public int AddMember(string firstName, string surName, string password, string cpr, string address, string zipCode, string phone, string mail)
         {
             DBConnector dbConnector = new DBConnector();
             if (dbConnector.OpenConnection())
@@ -79,10 +79,10 @@ namespace Badminton_WebService
                     }
 
                     cmd.CommandText =
-                        "INSERT INTO members (firstName, surName, cpr, address, zipCode, phone, mail) VALUES (@firstName, @surName, @cpr, @address, @zipCode, @phone, @mail)";
+                        "INSERT INTO members (firstName, surName, password, cpr, address, zipCode, phone, mail) VALUES (@firstName, @surName, @password, @cpr, @address, @zipCode, @phone, @mail)";
                     cmd.Parameters.Add("@firstName", MySqlDbType.VarChar).Value = firstName;
                     cmd.Parameters.Add("@surName", MySqlDbType.VarChar).Value = surName;
-                    //cmd.Parameters.Add("@cpr", MySqlDbType.VarChar).Value = cpr;
+                    cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
                     cmd.Parameters.Add("@address", MySqlDbType.VarChar).Value = address;
                     cmd.Parameters.Add("@zipCode", MySqlDbType.VarChar).Value = zipCode;
                     cmd.Parameters.Add("@phone", MySqlDbType.VarChar).Value = phone;
@@ -98,7 +98,7 @@ namespace Badminton_WebService
                 }
                 catch (Exception e)
                 {
-                    return 5;
+                    return 2;
                 }
             }
             else
