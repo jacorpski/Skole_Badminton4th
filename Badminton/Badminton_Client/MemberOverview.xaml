@@ -1,0 +1,9 @@
+﻿<Window x:Class="Badminton_Client.MemberOverview"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MemberOverview" Height="300" Width="300">
+    <Grid>
+        <Label Content="Label" HorizontalAlignment="Left" Margin="146,113,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

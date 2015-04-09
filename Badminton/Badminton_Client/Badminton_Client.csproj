@@ -67,6 +67,9 @@
       <DependentUpon>AddTeam.xaml</DependentUpon>
     </Compile>
     <Compile Include="Control\AddTeamHandler.cs" />
+    <Compile Include="MemberOverview.xaml.cs">
+      <DependentUpon>MemberOverview.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Team.cs" />
     <Compile Include="Model\TeamCatalog.cs" />
     <Compile Include="Service References\BadmintonService\Reference.cs">
@@ -96,6 +99,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MemberOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Member.cs" />
@@ -127,6 +134,9 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddTeamResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.LoginMemberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BadmintonService\DatabaseREST.wsdl" />

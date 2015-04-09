@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,7 +28,7 @@ namespace Badminton_Client
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        /*private void Button_Click(object sender, RoutedEventArgs e)
         {
             AddMember addMember = new AddMember();
             addMember.Show();
@@ -39,6 +40,31 @@ namespace Badminton_Client
             AddTeam addTeam = new AddTeam();
             addTeam.Show();
             this.Close();
+        }*/
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            string email = emailTextbox.Text;
+            string password = passwordTextbox.Password;
+            
+            AddMemberHandler addMemberHandler = new AddMemberHandler();
+
+            int result = addMemberHandler.LoginMember(email, password);
+
+            if (result == 1)
+            {
+                MemberOverview memberOverview = new MemberOverview();
+                memberOverview.Show();
+                this.Close();
+            }
+            else if (result == 2)
+            {
+                MessageBox.Show("Fejl!");
+            }
+            else
+            {
+                MessageBox.Show("Der skete en uventet fejl.");
+            }
         }
     }
 }

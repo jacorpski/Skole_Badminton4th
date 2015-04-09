@@ -44,5 +44,12 @@ namespace Badminton_Client
         {
             //Contact webservice here
         }
+
+        public int LoginMember(string email, string password)
+        {
+            DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
+
+            return soapClient.LoginMember(email, password);
+        }
     }
 }

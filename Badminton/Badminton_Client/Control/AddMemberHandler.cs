@@ -26,5 +26,10 @@ namespace Badminton_Client.Control
         {
             _memberCatalog.SetMemberAsInactive(memberId);
         }
+
+        public int LoginMember(string email, string password)
+        {
+            return _memberCatalog.LoginMember(email, password);
+        }
     }
 }

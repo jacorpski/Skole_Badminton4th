@@ -171,6 +171,43 @@ namespace Badminton_WebService
             }
         }
 
+        [WebMethod]
+        public int LoginMember(string email, string password)
+        {
+            DBConnector dbConnector = new DBConnector();
+
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "SELECT password FROM members WHERE mail = @email";
+
+                    cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+
+                    String correctPassword = cmd.ExecuteScalar().ToString();
+
+                    if (password.Equals(correctPassword))
+                    {
+                        return 1;
+                    }
+                    else
+                    {
+                        return 2;
+                    }
+                }
+                catch (Exception e)
+                {
+                    return 3;
+                }
+            }
+            else
+            {
+                return 3;
+            }
+        }
+
 
     }
 }
