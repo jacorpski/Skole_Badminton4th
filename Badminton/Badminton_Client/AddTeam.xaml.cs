@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +21,15 @@ namespace Badminton_Client
     /// </summary>
     public partial class AddTeam : Window
     {
-        public AddTeam()
+        private string _email;
+        private string _password;
+
+        public AddTeam(string email, string password)
         {
             InitializeComponent();
+
+            _email = email;
+            _password = password;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -32,6 +39,12 @@ namespace Badminton_Client
             AddTeamHandler addTeamHandler = new AddTeamHandler();
 
             addTeamHandler.AddTeam(name);
+        }
+
+        private void AddTeam_OnClosing(object sender, CancelEventArgs e)
+        {
+            MemberOverview memberOverview = new MemberOverview(_email, _password);
+            memberOverview.Show();
         }
     }
 }

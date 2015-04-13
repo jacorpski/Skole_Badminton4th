@@ -32,6 +32,11 @@ namespace Badminton_Client.Control
             return _memberCatalog.GetMemberActivity(email, password);
         }
 
+        public int GetAdminRights(string email, string password)
+        {
+            return _memberCatalog.GetAdminRights(email, password);
+        }
+
         public int LoginMember(string email, string password)
         {
             return _memberCatalog.LoginMember(email, password);

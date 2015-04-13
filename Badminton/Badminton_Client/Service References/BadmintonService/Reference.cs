@@ -50,6 +50,13 @@ namespace Badminton_Client.BadmintonService {
         System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetMemberActivityResponse> GetMemberActivityAsync(Badminton_Client.BadmintonService.GetMemberActivityRequest request);
         
         // CODEGEN: Generating message contract since element name email from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAdminRights", ReplyAction="*")]
+        Badminton_Client.BadmintonService.GetAdminRightsResponse GetAdminRights(Badminton_Client.BadmintonService.GetAdminRightsRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetAdminRights", ReplyAction="*")]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetAdminRightsResponse> GetAdminRightsAsync(Badminton_Client.BadmintonService.GetAdminRightsRequest request);
+        
+        // CODEGEN: Generating message contract since element name email from namespace http://tempuri.org/ is not marked nillable
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/LoginMember", ReplyAction="*")]
         Badminton_Client.BadmintonService.LoginMemberResponse LoginMember(Badminton_Client.BadmintonService.LoginMemberRequest request);
         
@@ -376,6 +383,78 @@ namespace Badminton_Client.BadmintonService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
     [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAdminRightsRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAdminRights", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.GetAdminRightsRequestBody Body;
+        
+        public GetAdminRightsRequest() {
+        }
+        
+        public GetAdminRightsRequest(Badminton_Client.BadmintonService.GetAdminRightsRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetAdminRightsRequestBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public string email;
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=1)]
+        public string password;
+        
+        public GetAdminRightsRequestBody() {
+        }
+        
+        public GetAdminRightsRequestBody(string email, string password) {
+            this.email = email;
+            this.password = password;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetAdminRightsResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetAdminRightsResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.GetAdminRightsResponseBody Body;
+        
+        public GetAdminRightsResponse() {
+        }
+        
+        public GetAdminRightsResponse(Badminton_Client.BadmintonService.GetAdminRightsResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetAdminRightsResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(Order=0)]
+        public int GetAdminRightsResult;
+        
+        public GetAdminRightsResponseBody() {
+        }
+        
+        public GetAdminRightsResponseBody(int GetAdminRightsResult) {
+            this.GetAdminRightsResult = GetAdminRightsResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
     public partial class LoginMemberRequest {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Name="LoginMember", Namespace="http://tempuri.org/", Order=0)]
@@ -667,6 +746,33 @@ namespace Badminton_Client.BadmintonService {
             inValue.Body.email = email;
             inValue.Body.password = password;
             return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).GetMemberActivityAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Badminton_Client.BadmintonService.GetAdminRightsResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.GetAdminRights(Badminton_Client.BadmintonService.GetAdminRightsRequest request) {
+            return base.Channel.GetAdminRights(request);
+        }
+        
+        public int GetAdminRights(string email, string password) {
+            Badminton_Client.BadmintonService.GetAdminRightsRequest inValue = new Badminton_Client.BadmintonService.GetAdminRightsRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.GetAdminRightsRequestBody();
+            inValue.Body.email = email;
+            inValue.Body.password = password;
+            Badminton_Client.BadmintonService.GetAdminRightsResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).GetAdminRights(inValue);
+            return retVal.Body.GetAdminRightsResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetAdminRightsResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.GetAdminRightsAsync(Badminton_Client.BadmintonService.GetAdminRightsRequest request) {
+            return base.Channel.GetAdminRightsAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetAdminRightsResponse> GetAdminRightsAsync(string email, string password) {
+            Badminton_Client.BadmintonService.GetAdminRightsRequest inValue = new Badminton_Client.BadmintonService.GetAdminRightsRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.GetAdminRightsRequestBody();
+            inValue.Body.email = email;
+            inValue.Body.password = password;
+            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).GetAdminRightsAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]

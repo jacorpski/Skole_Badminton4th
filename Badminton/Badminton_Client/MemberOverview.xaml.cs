@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.ServiceModel.Channels;
 using System.Text;
@@ -36,6 +37,7 @@ namespace Badminton_Client
             _password = password;
 
             GetActivity();
+            IsAdmin();
         }
 
         private void GetActivity()
@@ -60,6 +62,16 @@ namespace Badminton_Client
             _memberActivity = memberActivity;
         }
 
+        public void IsAdmin()
+        {
+            int adminRights = _addMemberHandler.GetAdminRights(_email, _password);
+
+            if (adminRights == 0)
+            {
+                addTeamButton.Visibility = Visibility.Hidden;
+            }
+        }
+
         private void activityButton_Click(object sender, RoutedEventArgs e)
         {
             if (_memberActivity == 1)
@@ -81,6 +93,19 @@ namespace Badminton_Client
             {
                 MessageBox.Show("Der skete en fejl");
             }
+        }
+
+        private void MemberOverview_OnClosing(object sender, CancelEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+        }
+
+        private void addTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddTeam addTeam = new AddTeam(_email, _password);
+            addTeam.Show();
+            Visibility = Visibility.Hidden;
         }
     }
 }

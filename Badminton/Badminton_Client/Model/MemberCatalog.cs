@@ -54,6 +54,13 @@ namespace Badminton_Client
             return soapClient.GetMemberActivity(email, password);
         }
 
+        public int GetAdminRights(string email, string password)
+        {
+            DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
+
+            return soapClient.GetAdminRights(email, password);
+        }
+
         public int LoginMember(string email, string password)
         {
             DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();

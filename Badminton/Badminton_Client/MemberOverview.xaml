@@ -1,10 +1,12 @@
 ﻿<Window x:Class="Badminton_Client.MemberOverview"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MemberOverview" Height="300" Width="300">
+        Title="MemberOverview" Height="300" Width="300"
+        Closing="MemberOverview_OnClosing">
     <Grid>
-        <Button x:Name="activityButton" Content="Button" HorizontalAlignment="Left" Margin="13,13,0,0" Padding="10,0,10,0" VerticalAlignment="Top" Width="Auto" Click="activityButton_Click"/>
+        <Button x:Name="activityButton" Content="Button" HorizontalAlignment="Left" Margin="13,13,0,0" Padding="10,0,10,0" VerticalAlignment="Top" Width="Auto" Height="20" Click="activityButton_Click"/>
         <Label x:Name="activityLabel" Content="Label" HorizontalAlignment="Left" Margin="13,36,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="addTeamButton" Content="Tilføj hold" HorizontalAlignment="Left" Margin="13,67,0,0" Padding="10,0,10,0" VerticalAlignment="Top" Width="Auto" Height="20" Click="addTeamButton_Click"/>
 
     </Grid>
 </Window>

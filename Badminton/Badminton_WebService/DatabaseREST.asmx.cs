@@ -209,6 +209,37 @@ namespace Badminton_WebService
         }
 
         [WebMethod]
+        public int GetAdminRights(string email, string password)
+        {
+            DBConnector dbConnector = new DBConnector();
+
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "SELECT isAdmin FROM members WHERE mail = @email AND password = @password";
+
+                    cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+
+                    int isAdmin = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return isAdmin;
+                }
+                catch (Exception e)
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                return 2;
+            }
+        }
+
+        [WebMethod]
         public int LoginMember(string email, string password)
         {
             DBConnector dbConnector = new DBConnector();

@@ -82,6 +82,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetAdminRights">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAdminRightsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetAdminRightsResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="LoginMember">
         <s:complexType>
           <s:sequence>
@@ -144,6 +159,12 @@
   <wsdl:message name="GetMemberActivitySoapOut">
     <wsdl:part name="parameters" element="tns:GetMemberActivityResponse" />
   </wsdl:message>
+  <wsdl:message name="GetAdminRightsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAdminRights" />
+  </wsdl:message>
+  <wsdl:message name="GetAdminRightsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAdminRightsResponse" />
+  </wsdl:message>
   <wsdl:message name="LoginMemberSoapIn">
     <wsdl:part name="parameters" element="tns:LoginMember" />
   </wsdl:message>
@@ -176,6 +197,10 @@
     <wsdl:operation name="GetMemberActivity">
       <wsdl:input message="tns:GetMemberActivitySoapIn" />
       <wsdl:output message="tns:GetMemberActivitySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminRights">
+      <wsdl:input message="tns:GetAdminRightsSoapIn" />
+      <wsdl:output message="tns:GetAdminRightsSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="LoginMember">
       <wsdl:input message="tns:LoginMemberSoapIn" />
@@ -226,6 +251,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMemberActivity">
       <soap:operation soapAction="http://tempuri.org/GetMemberActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminRights">
+      <soap:operation soapAction="http://tempuri.org/GetAdminRights" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -292,6 +326,15 @@
     </wsdl:operation>
     <wsdl:operation name="GetMemberActivity">
       <soap12:operation soapAction="http://tempuri.org/GetMemberActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdminRights">
+      <soap12:operation soapAction="http://tempuri.org/GetAdminRights" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
