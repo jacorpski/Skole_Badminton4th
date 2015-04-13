@@ -53,7 +53,7 @@ namespace Badminton_Client
 
             if (result == 1)
             {
-                MemberOverview memberOverview = new MemberOverview();
+                MemberOverview memberOverview = new MemberOverview(email, password);
                 memberOverview.Show();
                 this.Close();
             }

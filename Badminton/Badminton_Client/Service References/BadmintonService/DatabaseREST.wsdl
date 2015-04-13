@@ -55,7 +55,8 @@
       <s:element name="SetMemberAsInactive">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="1" maxOccurs="1" name="memberId" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -63,6 +64,21 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="SetMemberAsInactiveResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberActivity">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetMemberActivityResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetMemberActivityResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -78,6 +94,21 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="1" maxOccurs="1" name="LoginMemberResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HaveAdmin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HaveAdminResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="HaveAdminResult" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -107,11 +138,23 @@
   <wsdl:message name="SetMemberAsInactiveSoapOut">
     <wsdl:part name="parameters" element="tns:SetMemberAsInactiveResponse" />
   </wsdl:message>
+  <wsdl:message name="GetMemberActivitySoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberActivity" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberActivitySoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberActivityResponse" />
+  </wsdl:message>
   <wsdl:message name="LoginMemberSoapIn">
     <wsdl:part name="parameters" element="tns:LoginMember" />
   </wsdl:message>
   <wsdl:message name="LoginMemberSoapOut">
     <wsdl:part name="parameters" element="tns:LoginMemberResponse" />
+  </wsdl:message>
+  <wsdl:message name="HaveAdminSoapIn">
+    <wsdl:part name="parameters" element="tns:HaveAdmin" />
+  </wsdl:message>
+  <wsdl:message name="HaveAdminSoapOut">
+    <wsdl:part name="parameters" element="tns:HaveAdminResponse" />
   </wsdl:message>
   <wsdl:portType name="DatabaseRESTSoap">
     <wsdl:operation name="AssignMemberToTeam">
@@ -130,9 +173,17 @@
       <wsdl:input message="tns:SetMemberAsInactiveSoapIn" />
       <wsdl:output message="tns:SetMemberAsInactiveSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="GetMemberActivity">
+      <wsdl:input message="tns:GetMemberActivitySoapIn" />
+      <wsdl:output message="tns:GetMemberActivitySoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="LoginMember">
       <wsdl:input message="tns:LoginMemberSoapIn" />
       <wsdl:output message="tns:LoginMemberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="HaveAdmin">
+      <wsdl:input message="tns:HaveAdminSoapIn" />
+      <wsdl:output message="tns:HaveAdminSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DatabaseRESTSoap" type="tns:DatabaseRESTSoap">
@@ -173,8 +224,26 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMemberActivity">
+      <soap:operation soapAction="http://tempuri.org/GetMemberActivity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoginMember">
       <soap:operation soapAction="http://tempuri.org/LoginMember" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HaveAdmin">
+      <soap:operation soapAction="http://tempuri.org/HaveAdmin" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -221,8 +290,26 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMemberActivity">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberActivity" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="LoginMember">
       <soap12:operation soapAction="http://tempuri.org/LoginMember" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="HaveAdmin">
+      <soap12:operation soapAction="http://tempuri.org/HaveAdmin" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

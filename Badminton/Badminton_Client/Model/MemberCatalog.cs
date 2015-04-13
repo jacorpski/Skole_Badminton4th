@@ -40,9 +40,18 @@ namespace Badminton_Client
             }
         }
 
-        public void SetMemberAsInactive(int memberId)
+        public int SetMemberAsInactive(string email, string password)
         {
-            //Contact webservice here
+            DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
+
+            return soapClient.SetMemberAsInactive(email, password);
+        }
+
+        public int GetMemberActivity(string email, string password)
+        {
+            DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
+
+            return soapClient.GetMemberActivity(email, password);
         }
 
         public int LoginMember(string email, string password)

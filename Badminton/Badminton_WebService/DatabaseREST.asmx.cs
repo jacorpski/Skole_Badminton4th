@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using System.Web.UI.WebControls;
 using MySql.Data.MySqlClient;
 using System.Windows;
 
@@ -140,7 +141,7 @@ namespace Badminton_WebService
         }
 
         [WebMethod]
-        public int SetMemberAsInactive(int memberId)
+        public int SetMemberAsInactive(string email, string password)
         {
             DBConnector dbConnector = new DBConnector();
             if (dbConnector.OpenConnection())
@@ -148,9 +149,14 @@ namespace Badminton_WebService
                 try
                 {
                     MySqlCommand cmd = dbConnector.connection.CreateCommand();
-                    cmd.CommandText =
+                    /*cmd.CommandText =
                         "UPDATE members SET isActive = 0 WHERE P_ID = @memberId";
-                    cmd.Parameters.Add("@memberId", MySqlDbType.Int32).Value = memberId;
+                    cmd.Parameters.Add("@memberId", MySqlDbType.Int32).Value = memberId;*/
+
+                    cmd.CommandText = "UPDATE members SET isActive = 0 WHERE mail = @email AND password = @password";
+
+                    cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
 
                     //Execute command
                     cmd.ExecuteNonQuery();
@@ -167,7 +173,38 @@ namespace Badminton_WebService
             }
             else
             {
-                return 3;
+                return 2;
+            }
+        }
+
+        [WebMethod]
+        public int GetMemberActivity(string email, string password)
+        {
+            DBConnector dbConnector = new DBConnector();
+
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "SELECT isActive FROM members WHERE mail = @email AND password = @password";
+
+                    cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+
+                    int isActive = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return isActive;
+                }
+                catch (Exception e)
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                return 2;
             }
         }
 
@@ -208,6 +245,35 @@ namespace Badminton_WebService
             }
         }
 
+        [WebMethod]
+        public int HaveAdmin(string email, string password)
+        {
+            DBConnector dbConnector = new DBConnector();
 
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "SELECT isAdmin FROM members WHERE mail = @email AND password = @password";
+
+                    cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
+                    cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
+
+                    int admin = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return admin;
+                }
+                catch (Exception e)
+                {
+                    return 2;
+                }
+            }
+            else
+            {
+                return 2;
+            }
+        }
     }
 }

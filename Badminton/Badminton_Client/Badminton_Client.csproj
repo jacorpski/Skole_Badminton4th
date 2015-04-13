@@ -136,7 +136,16 @@
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddTeamResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.GetMemberActivityResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.HaveAdminResponse1.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.LoginMemberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.SetMemberAsInactiveResponse1.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BadmintonService\DatabaseREST.wsdl" />

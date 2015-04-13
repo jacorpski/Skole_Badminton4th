@@ -22,9 +22,14 @@ namespace Badminton_Client.Control
             _memberCatalog.AddMember(new Member(firstName, surName, password, cpr, address, zipCode, phone, mail));
         }
 
-        public void SetMemberAsInactive(int memberId)
+        public int SetMemberAsInactive(string email, string password)
         {
-            _memberCatalog.SetMemberAsInactive(memberId);
+            return _memberCatalog.SetMemberAsInactive(email, password);
+        }
+
+        public int GetMemberActivity(string email, string password)
+        {
+            return _memberCatalog.GetMemberActivity(email, password);
         }
 
         public int LoginMember(string email, string password)
