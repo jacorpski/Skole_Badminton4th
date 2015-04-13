@@ -36,5 +36,10 @@ namespace Badminton_Client.Control
         {
             return _memberCatalog.LoginMember(email, password);
         }
+
+        public void AssignMemberToTeam(int memberId, int teamId)
+        {
+            _memberCatalog.AssignMemberToTeam(memberId, teamId);
+        }
     }
 }
