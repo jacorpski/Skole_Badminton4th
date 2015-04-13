@@ -10,6 +10,7 @@ namespace Badminton_Client
     public class Member
     {
         private int _memberId;
+        private int _assignedTeamId;
         private bool _isActive;
         private string _firstName;
         private string _surName;
@@ -36,6 +37,12 @@ namespace Badminton_Client
         {
             get { return _memberId; }
             set { _memberId = value; }
+        }
+
+        public int AssignedTeamId
+        {
+            get { return _assignedTeamId; }
+            set { _assignedTeamId = value; }
         }
 
         public bool IsActive

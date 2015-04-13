@@ -49,7 +49,7 @@ namespace Badminton_Client
         {
             //opdater object
             Member member = FindMemberOnId(memberId);
-            member.MemberId = memberId;
+            member.AssignedTeamId = teamId;
 
             //opdater databasen
             DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
