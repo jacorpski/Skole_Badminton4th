@@ -1,7 +1,8 @@
 ﻿<Window x:Class="Badminton_Client.AddMember"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Tilføj medlem" Height="350" Width="525">
+        Title="Tilføj medlem" Height="350" Width="525"
+        Closing="Closing_Click">
     <Grid>
         <Label Content="Fornavn&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Height="42" Width="52"/>
         <Label Content="Efternavn&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,58,0,0" VerticalAlignment="Top" Height="42" Width="60"/>

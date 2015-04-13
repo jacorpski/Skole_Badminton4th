@@ -28,25 +28,11 @@ namespace Badminton_Client
             InitializeComponent();
         }
 
-        /*private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AddMember addMember = new AddMember();
-            addMember.Show();
-            this.Close();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-            AddTeam addTeam = new AddTeam();
-            addTeam.Show();
-            this.Close();
-        }*/
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
+        private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             string email = emailTextbox.Text;
             string password = passwordTextbox.Password;
-            
+
             AddMemberHandler addMemberHandler = new AddMemberHandler();
 
             int result = addMemberHandler.LoginMember(email, password);
@@ -65,6 +51,13 @@ namespace Badminton_Client
             {
                 MessageBox.Show("Der skete en uventet fejl.");
             }
+        }
+
+        private void addMemberButton_Click(object sender, RoutedEventArgs e)
+        {
+            AddMember addMember = new AddMember();
+            addMember.Show();
+            this.Close();
         }
     }
 }

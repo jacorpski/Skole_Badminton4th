@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,12 @@ namespace Badminton_Client
             AddMemberHandler addMemberHandler = new AddMemberHandler();
 
             addMemberHandler.AddMember(firstName, surName, password, cpr, address, zipCode, phone, mail);
+        }
+
+        private void Closing_Click(object sender, CancelEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
         }
     }
 }
