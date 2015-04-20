@@ -107,5 +107,10 @@ namespace Badminton_Client
             addTeam.Show();
             Visibility = Visibility.Hidden;
         }
+
+        private void logoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

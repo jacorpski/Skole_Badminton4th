@@ -49,5 +49,10 @@ namespace Badminton_Client
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }

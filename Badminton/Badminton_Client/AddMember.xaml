@@ -21,6 +21,7 @@
         <TextBox x:Name="mailText" HorizontalAlignment="Left" Height="23" Margin="88,209,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Opret" HorizontalAlignment="Left" Margin="11,292,0,0" VerticalAlignment="Top" Width="75" Height="20" Click="Button_Click"/>
         <Label Content="Kodeord&#xD;&#xA;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11,81,0,0"/>
+        <Button x:Name="backButton" Content="Tilbage" HorizontalAlignment="Left" Margin="435,292,0,0" VerticalAlignment="Top" Width="75" Click="backButton_Click"/>
 
     </Grid>
 </Window>

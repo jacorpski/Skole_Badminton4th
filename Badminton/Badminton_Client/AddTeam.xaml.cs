@@ -46,5 +46,10 @@ namespace Badminton_Client
             MemberOverview memberOverview = new MemberOverview(_email, _password);
             memberOverview.Show();
         }
+
+        private void backButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
     }
 }
