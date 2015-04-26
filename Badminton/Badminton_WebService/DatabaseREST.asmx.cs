@@ -188,14 +188,25 @@ namespace Badminton_WebService
                 {
                     MySqlCommand cmd = dbConnector.connection.CreateCommand();
 
-                    cmd.CommandText = "SELECT isActive FROM members WHERE mail = @email AND password = @password";
+                    cmd.CommandText = "SELECT FK_teamId FROM members WHERE mail = @email AND password = @password";
 
                     cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
                     cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
 
-                    int isActive = Convert.ToInt32(cmd.ExecuteScalar());
+                    //int isActive = Convert.ToInt32(cmd.ExecuteScalar());
 
-                    return isActive;
+                    string activity = cmd.ExecuteScalar().ToString();
+
+                    if (string.IsNullOrEmpty(activity))
+                    {
+                        return 0;
+                    }
+                    else
+                    {
+                        return 1;
+                    }
+
+                    //return isActive;
                 }
                 catch (Exception e)
                 {
