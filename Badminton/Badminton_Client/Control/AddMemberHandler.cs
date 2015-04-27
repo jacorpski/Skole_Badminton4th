@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -46,5 +47,15 @@ namespace Badminton_Client.Control
         {
             _memberCatalog.AssignMemberToTeam(memberId, teamId);
         }
+
+        public List<String> GetMemberList()
+        {
+            return _memberCatalog.GetMemberList();
+        }
+
+        public List<String> GetTeamList()
+        {
+            return _memberCatalog.GetTeamList();
+        } 
     }
 }

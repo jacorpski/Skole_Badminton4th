@@ -8,6 +8,7 @@
         <Label x:Name="activityLabel" Content="Label" HorizontalAlignment="Left" Margin="13,36,0,0" VerticalAlignment="Top"/>
         <Button x:Name="addTeamButton" Content="Tilføj hold" HorizontalAlignment="Left" Margin="13,67,0,0" Padding="10,0,10,0" VerticalAlignment="Top" Width="Auto" Height="20" Click="addTeamButton_Click"/>
         <Button x:Name="logoutButton" Content="Log ud" HorizontalAlignment="Left" Margin="210,242,0,0" VerticalAlignment="Top" Width="75" Click="logoutButton_Click"/>
+        <Button x:Name="assignTeamButton" Content="Tildel hold" HorizontalAlignment="Left" Margin="13,92,0,0" VerticalAlignment="Top" Width="75" Click="assignTeamButton_Click"/>
 
     </Grid>
 </Window>

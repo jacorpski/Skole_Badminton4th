@@ -66,6 +66,9 @@
     <Compile Include="AddTeam.xaml.cs">
       <DependentUpon>AddTeam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AssignTeam.xaml.cs">
+      <DependentUpon>AssignTeam.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Control\AddTeamHandler.cs" />
     <Compile Include="MemberOverview.xaml.cs">
       <DependentUpon>MemberOverview.xaml</DependentUpon>
@@ -82,6 +85,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="AddTeam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AssignTeam.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -133,7 +140,10 @@
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddMemberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddTeamResponse1.datasource">
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.AddTeamResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.ArrayOfString.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.GetAdminRightsResponse.datasource">
@@ -142,13 +152,19 @@
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.GetMemberActivityResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.HaveAdminResponse1.datasource">
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.GetMemberListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.GetTeamListResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.HaveAdminResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.LoginMemberResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.SetMemberAsInactiveResponse1.datasource">
+    <None Include="Service References\BadmintonService\Badminton_Client.BadmintonService.SetMemberAsInactiveResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\BadmintonService\DatabaseREST.wsdl" />

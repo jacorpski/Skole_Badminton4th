@@ -69,6 +69,7 @@ namespace Badminton_Client
             if (adminRights == 0)
             {
                 addTeamButton.Visibility = Visibility.Hidden;
+                assignTeamButton.Visibility = Visibility.Hidden;
             }
         }
 
@@ -105,6 +106,13 @@ namespace Badminton_Client
         {
             AddTeam addTeam = new AddTeam(_email, _password);
             addTeam.Show();
+            Visibility = Visibility.Hidden;
+        }
+
+        private void assignTeamButton_Click(object sender, RoutedEventArgs e)
+        {
+            AssignTeam assignTeam = new AssignTeam(_email, _password);
+            assignTeam.Show();
             Visibility = Visibility.Hidden;
         }
 

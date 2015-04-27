@@ -127,6 +127,31 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetMemberList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetMemberListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetMemberListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTeamList">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTeamListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTeamListResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="AssignMemberToTeamSoapIn">
@@ -177,6 +202,18 @@
   <wsdl:message name="HaveAdminSoapOut">
     <wsdl:part name="parameters" element="tns:HaveAdminResponse" />
   </wsdl:message>
+  <wsdl:message name="GetMemberListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetMemberList" />
+  </wsdl:message>
+  <wsdl:message name="GetMemberListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetMemberListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTeamList" />
+  </wsdl:message>
+  <wsdl:message name="GetTeamListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTeamListResponse" />
+  </wsdl:message>
   <wsdl:portType name="DatabaseRESTSoap">
     <wsdl:operation name="AssignMemberToTeam">
       <wsdl:input message="tns:AssignMemberToTeamSoapIn" />
@@ -209,6 +246,14 @@
     <wsdl:operation name="HaveAdmin">
       <wsdl:input message="tns:HaveAdminSoapIn" />
       <wsdl:output message="tns:HaveAdminSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberList">
+      <wsdl:input message="tns:GetMemberListSoapIn" />
+      <wsdl:output message="tns:GetMemberListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamList">
+      <wsdl:input message="tns:GetTeamListSoapIn" />
+      <wsdl:output message="tns:GetTeamListSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="DatabaseRESTSoap" type="tns:DatabaseRESTSoap">
@@ -285,6 +330,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetMemberList">
+      <soap:operation soapAction="http://tempuri.org/GetMemberList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamList">
+      <soap:operation soapAction="http://tempuri.org/GetTeamList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="DatabaseRESTSoap12" type="tns:DatabaseRESTSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -353,6 +416,24 @@
     </wsdl:operation>
     <wsdl:operation name="HaveAdmin">
       <soap12:operation soapAction="http://tempuri.org/HaveAdmin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetMemberList">
+      <soap12:operation soapAction="http://tempuri.org/GetMemberList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTeamList">
+      <soap12:operation soapAction="http://tempuri.org/GetTeamList" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

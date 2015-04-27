@@ -70,10 +70,6 @@ namespace Badminton_Client
 
         public void AssignMemberToTeam(int memberId, int teamId)
         {
-            //opdater object
-            Member member = FindMemberOnId(memberId);
-            member.AssignedTeamId = teamId;
-
             //opdater databasen
             DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
 
@@ -93,5 +89,19 @@ namespace Badminton_Client
         {
             return _catalog.FirstOrDefault(member => member.MemberId == memberId);
         }
+
+        public List<String> GetMemberList()
+        {
+            DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
+
+            return soapClient.GetMemberList();
+        }
+
+        public List<String> GetTeamList()
+        {
+            DatabaseRESTSoapClient soapClient = new DatabaseRESTSoapClient();
+
+            return soapClient.GetTeamList();
+        } 
     }
 }

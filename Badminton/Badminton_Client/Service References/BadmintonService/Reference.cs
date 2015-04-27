@@ -9,7 +9,16 @@
 //------------------------------------------------------------------------------
 
 namespace Badminton_Client.BadmintonService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="ArrayOfString", Namespace="http://tempuri.org/", ItemName="string")]
+    [System.SerializableAttribute()]
+    public class ArrayOfString : System.Collections.Generic.List<string> {
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="BadmintonService.DatabaseRESTSoap")]
@@ -69,6 +78,20 @@ namespace Badminton_Client.BadmintonService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/HaveAdmin", ReplyAction="*")]
         System.Threading.Tasks.Task<Badminton_Client.BadmintonService.HaveAdminResponse> HaveAdminAsync(Badminton_Client.BadmintonService.HaveAdminRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetMemberListResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetMemberList", ReplyAction="*")]
+        Badminton_Client.BadmintonService.GetMemberListResponse GetMemberList(Badminton_Client.BadmintonService.GetMemberListRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetMemberList", ReplyAction="*")]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetMemberListResponse> GetMemberListAsync(Badminton_Client.BadmintonService.GetMemberListRequest request);
+        
+        // CODEGEN: Generating message contract since element name GetTeamListResult from namespace http://tempuri.org/ is not marked nillable
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTeamList", ReplyAction="*")]
+        Badminton_Client.BadmintonService.GetTeamListResponse GetTeamList(Badminton_Client.BadmintonService.GetTeamListRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/GetTeamList", ReplyAction="*")]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetTeamListResponse> GetTeamListAsync(Badminton_Client.BadmintonService.GetTeamListRequest request);
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -595,6 +618,128 @@ namespace Badminton_Client.BadmintonService {
         }
     }
     
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetMemberListRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetMemberList", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.GetMemberListRequestBody Body;
+        
+        public GetMemberListRequest() {
+        }
+        
+        public GetMemberListRequest(Badminton_Client.BadmintonService.GetMemberListRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetMemberListRequestBody {
+        
+        public GetMemberListRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetMemberListResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetMemberListResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.GetMemberListResponseBody Body;
+        
+        public GetMemberListResponse() {
+        }
+        
+        public GetMemberListResponse(Badminton_Client.BadmintonService.GetMemberListResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetMemberListResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Badminton_Client.BadmintonService.ArrayOfString GetMemberListResult;
+        
+        public GetMemberListResponseBody() {
+        }
+        
+        public GetMemberListResponseBody(Badminton_Client.BadmintonService.ArrayOfString GetMemberListResult) {
+            this.GetMemberListResult = GetMemberListResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetTeamListRequest {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTeamList", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.GetTeamListRequestBody Body;
+        
+        public GetTeamListRequest() {
+        }
+        
+        public GetTeamListRequest(Badminton_Client.BadmintonService.GetTeamListRequestBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute()]
+    public partial class GetTeamListRequestBody {
+        
+        public GetTeamListRequestBody() {
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.ServiceModel.MessageContractAttribute(IsWrapped=false)]
+    public partial class GetTeamListResponse {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Name="GetTeamListResponse", Namespace="http://tempuri.org/", Order=0)]
+        public Badminton_Client.BadmintonService.GetTeamListResponseBody Body;
+        
+        public GetTeamListResponse() {
+        }
+        
+        public GetTeamListResponse(Badminton_Client.BadmintonService.GetTeamListResponseBody Body) {
+            this.Body = Body;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
+    [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+    [System.Runtime.Serialization.DataContractAttribute(Namespace="http://tempuri.org/")]
+    public partial class GetTeamListResponseBody {
+        
+        [System.Runtime.Serialization.DataMemberAttribute(EmitDefaultValue=false, Order=0)]
+        public Badminton_Client.BadmintonService.ArrayOfString GetTeamListResult;
+        
+        public GetTeamListResponseBody() {
+        }
+        
+        public GetTeamListResponseBody(Badminton_Client.BadmintonService.ArrayOfString GetTeamListResult) {
+            this.GetTeamListResult = GetTeamListResult;
+        }
+    }
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface DatabaseRESTSoapChannel : Badminton_Client.BadmintonService.DatabaseRESTSoap, System.ServiceModel.IClientChannel {
     }
@@ -827,6 +972,52 @@ namespace Badminton_Client.BadmintonService {
             inValue.Body.email = email;
             inValue.Body.password = password;
             return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).HaveAdminAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Badminton_Client.BadmintonService.GetMemberListResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.GetMemberList(Badminton_Client.BadmintonService.GetMemberListRequest request) {
+            return base.Channel.GetMemberList(request);
+        }
+        
+        public Badminton_Client.BadmintonService.ArrayOfString GetMemberList() {
+            Badminton_Client.BadmintonService.GetMemberListRequest inValue = new Badminton_Client.BadmintonService.GetMemberListRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.GetMemberListRequestBody();
+            Badminton_Client.BadmintonService.GetMemberListResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).GetMemberList(inValue);
+            return retVal.Body.GetMemberListResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetMemberListResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.GetMemberListAsync(Badminton_Client.BadmintonService.GetMemberListRequest request) {
+            return base.Channel.GetMemberListAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetMemberListResponse> GetMemberListAsync() {
+            Badminton_Client.BadmintonService.GetMemberListRequest inValue = new Badminton_Client.BadmintonService.GetMemberListRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.GetMemberListRequestBody();
+            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).GetMemberListAsync(inValue);
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        Badminton_Client.BadmintonService.GetTeamListResponse Badminton_Client.BadmintonService.DatabaseRESTSoap.GetTeamList(Badminton_Client.BadmintonService.GetTeamListRequest request) {
+            return base.Channel.GetTeamList(request);
+        }
+        
+        public Badminton_Client.BadmintonService.ArrayOfString GetTeamList() {
+            Badminton_Client.BadmintonService.GetTeamListRequest inValue = new Badminton_Client.BadmintonService.GetTeamListRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.GetTeamListRequestBody();
+            Badminton_Client.BadmintonService.GetTeamListResponse retVal = ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).GetTeamList(inValue);
+            return retVal.Body.GetTeamListResult;
+        }
+        
+        [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
+        System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetTeamListResponse> Badminton_Client.BadmintonService.DatabaseRESTSoap.GetTeamListAsync(Badminton_Client.BadmintonService.GetTeamListRequest request) {
+            return base.Channel.GetTeamListAsync(request);
+        }
+        
+        public System.Threading.Tasks.Task<Badminton_Client.BadmintonService.GetTeamListResponse> GetTeamListAsync() {
+            Badminton_Client.BadmintonService.GetTeamListRequest inValue = new Badminton_Client.BadmintonService.GetTeamListRequest();
+            inValue.Body = new Badminton_Client.BadmintonService.GetTeamListRequestBody();
+            return ((Badminton_Client.BadmintonService.DatabaseRESTSoap)(this)).GetTeamListAsync(inValue);
         }
     }
 }

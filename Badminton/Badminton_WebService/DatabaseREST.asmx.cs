@@ -32,7 +32,15 @@ namespace Badminton_WebService
 
                     cmd.CommandText = "UPDATE members SET FK_teamId = @teamId WHERE memberId = @memberId";
 
-                    cmd.Parameters.Add("@teamId", MySqlDbType.Int32).Value = teamId;
+                    if (teamId == 0)
+                    {
+                        cmd.Parameters.Add("@teamId", MySqlDbType.VarChar).Value = DBNull.Value;
+                    }
+                    else
+                    {
+                        cmd.Parameters.Add("@teamId", MySqlDbType.Int32).Value = teamId;
+                    }
+
                     cmd.Parameters.Add("@memberId", MySqlDbType.Int32).Value = memberId;
 
                     cmd.ExecuteNonQuery();
@@ -193,8 +201,6 @@ namespace Badminton_WebService
                     cmd.Parameters.Add("@email", MySqlDbType.VarChar).Value = email;
                     cmd.Parameters.Add("@password", MySqlDbType.VarChar).Value = password;
 
-                    //int isActive = Convert.ToInt32(cmd.ExecuteScalar());
-
                     string activity = cmd.ExecuteScalar().ToString();
 
                     if (string.IsNullOrEmpty(activity))
@@ -205,8 +211,6 @@ namespace Badminton_WebService
                     {
                         return 1;
                     }
-
-                    //return isActive;
                 }
                 catch (Exception e)
                 {
@@ -315,6 +319,98 @@ namespace Badminton_WebService
             else
             {
                 return 2;
+            }
+        }
+
+        [WebMethod]
+        public List<String> GetMemberList()
+        {
+            DBConnector dbConnector = new DBConnector();
+
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "SELECT FK_teamId, memberId, firstName, surName FROM members";
+
+                    MySqlDataReader results = cmd.ExecuteReader();
+
+                    List<String> members = new List<string>();
+
+                    while (results.Read())
+                    {
+                        string teamId;
+                        int colIndex = results.GetOrdinal("FK_teamId");
+
+                        if (results.IsDBNull(colIndex))
+                        {
+                            teamId = "0";
+                        }
+                        else
+                        {
+                            teamId = results.GetString(colIndex);
+                        }
+
+
+                        string memberId = results.GetString("memberId");
+                        string firstName = results.GetString("firstName");
+                        string surName = results.GetString("surName");
+
+                        string fullName = firstName + " " + surName;
+
+                        members.Add(teamId + "," + memberId + "," + fullName);
+                    }
+
+                    return members;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        [WebMethod]
+        public List<String> GetTeamList()
+        {
+            DBConnector dbConnector = new DBConnector();
+
+            if (dbConnector.OpenConnection())
+            {
+                try
+                {
+                    MySqlCommand cmd = dbConnector.connection.CreateCommand();
+
+                    cmd.CommandText = "SELECT * FROM teams";
+
+                    MySqlDataReader results = cmd.ExecuteReader();
+
+                    List<String> teams = new List<string>();
+
+                    while (results.Read())
+                    {
+                        string teamID = results.GetString("teamID");
+                        string name = results.GetString("name");
+
+                        teams.Add(teamID + "," + name);
+                    }
+
+                    return teams;
+                }
+                catch (Exception e)
+                {
+                    return null;
+                }
+            }
+            else
+            {
+                return null;
             }
         }
     }
